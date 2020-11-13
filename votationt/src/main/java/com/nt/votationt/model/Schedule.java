@@ -8,9 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import io.swagger.annotations.ApiModelProperty;
-
 import java.time.LocalDateTime;
 
 
@@ -25,7 +23,7 @@ public class Schedule {
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 @Column(name = "id_schedule")
-@JsonIgnore
+@ApiModelProperty(hidden = true)
 private Long id;
 private String category;
 private String name;

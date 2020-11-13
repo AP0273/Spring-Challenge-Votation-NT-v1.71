@@ -6,6 +6,8 @@ import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import io.swagger.annotations.ApiModelProperty;
 
@@ -19,6 +21,7 @@ public class Person {
 	}
 	@Id
 	private Long cpf;
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private String password; // (WIP)
 	private String fullName;
 	private Long phone;
