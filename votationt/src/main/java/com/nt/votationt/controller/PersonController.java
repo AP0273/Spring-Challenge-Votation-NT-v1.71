@@ -29,18 +29,12 @@ public class PersonController {
 
 	@PostMapping
 	public Object create(@RequestBody Person person) {
-		if (person instanceof Person) {
-			return service.insertPerson(person);
-		} else
-			return "CPF Invalido";
+		return service.insertPerson(person);
 	}
 
 	@PutMapping
 	public Object update(@RequestBody Person person) {
-		if (person instanceof Person) {
-			return service.insertPerson(person);
-		} else
-			return "CPF Invalido";
+		return service.insertPerson(person);
 	}
 
 	@GetMapping("/getbyCpf/{cpf}")
@@ -70,9 +64,6 @@ public class PersonController {
 
 	@PatchMapping
 	public Object patchUpdate(@RequestBody Person person) {
-		if (person instanceof Person) {
-			return service.insertPerson(person);
-		} else
-			return "CPF Invalido";
+		return service.insertPerson(person);
 	}
 }

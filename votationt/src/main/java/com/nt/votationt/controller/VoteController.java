@@ -36,12 +36,12 @@ public class VoteController {
 	}
 
 	@GetMapping("/getbyId/{id}")
-	public Vote getById(@PathVariable Long id) {
+	public Object getById(@PathVariable Long id) {
 		return service.FindVote(id);
 	}
 
 	@GetMapping("/getbyCpfPerson/{CpfPerson}")
-	public Vote getByCpfPerson(@PathVariable Long CpfPerson) {
+	public Object getByCpfPerson(@PathVariable Long CpfPerson) {
 		return service.FindVote(CpfPerson);
 	}
 

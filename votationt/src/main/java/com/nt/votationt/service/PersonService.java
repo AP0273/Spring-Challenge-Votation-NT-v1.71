@@ -15,32 +15,16 @@ public class PersonService {
 	private PersonRepository repository;
 
 	public Object insertPerson(Person person) {
-		person.setcanVote(false);
-		String GetVote = null;
-		try {
-			GetVote = HttpGet.GetCpfState(person.getCpf());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		String Able = "{\"status\":\"ABLE_TO_VOTE\"}";
-		String Unable = "{\"status\":\"UNABLE_TO_VOTE\"}";
-		System.out.println("CPF: " + person.getCpf() + " --> " + GetVote);
-		Person PDB = repository.PersonExist(person.getCpf());
-		if (PDB == null) {
-			if (GetVote.equals(Able)) {
-				person.setcanVote(true);
-				return repository.save(person);
-			}
-			if (GetVote.equals(Unable)) {
-				return repository.save(person);
+		if (CpfisAbleToVote(person) != null) {
+			if (CpfAlreadyExist(person) == false) {
+				repository.save(person);
 			} else {
-				return "Invalid CPF";
+				return "CPF Already Registred";
 			}
 		} else {
-			return "CPF Already Registred";
+			return "Invalid CPF";
 		}
-
+		return person;
 	}
 
 	public String DeletePerson(Long cpf) {
@@ -57,11 +41,6 @@ public class PersonService {
 		return repository.findByCpf(cpf);
 	}
 
-	/*
-	 * public Object FindByFname(String fname) { Person person =
-	 * repository.FindByFname(fname); if(person != null) { return person; }else {
-	 * return "Pessoa não Encontrada"; } }
-	 */
 	public Person findByFullNameIgnoreCase(String Name) {
 		return repository.findByFullNameIgnoreCase(Name);
 	}
@@ -74,10 +53,39 @@ public class PersonService {
 	public List<Person> findBycanVote(Boolean canVote) {
 
 		List<Person> list = repository.findBycanVote(canVote);
-		/*
-		 * for (Person e : list) { if(e.iscanVote() != canVote) { list.remove(e); } }
-		 */
 		return list;
+	}
+
+	// checkings
+
+	public Boolean CpfAlreadyExist(Person person) {
+		Person PDB = repository.PersonExist(person.getCpf());
+		if (PDB != null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public Boolean CpfisAbleToVote(Person person) {
+		person.setcanVote(false);
+		String GetVote = null;
+		try {
+			GetVote = HttpGet.GetCpfState(person.getCpf());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String Able = "{\"status\":\"ABLE_TO_VOTE\"}";
+		String Unable = "{\"status\":\"UNABLE_TO_VOTE\"}";
+		System.out.println("CPF: " + person.getCpf() + " --> " + GetVote);
+		if (GetVote.equals(Able)) {
+			return true;
+		} else if (GetVote.equals(Unable)) {
+			return false;
+		} else {
+			return null;
+		}
 	}
 
 }

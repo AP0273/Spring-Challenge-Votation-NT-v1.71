@@ -61,8 +61,13 @@ public class VoteService {
 
 	}
 
-	public Vote FindVote(Long id) {
-		return voterepository.getOne(id);
+	public Object FindVote(Long id) {
+		Vote vote = voterepository.getOne(id);
+		if (vote != null) {
+			return voterepository.getOne(id);
+		} else {
+			return "Vote not Found";
+		}
 	}
 
 	public Vote findByCpfPerson(Long Cpf) {
