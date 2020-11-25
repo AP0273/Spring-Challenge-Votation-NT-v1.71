@@ -1,12 +1,11 @@
 package com.nt.votationt.service;
 
-import java.io.IOException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.nt.votationt.model.Person;
 import com.nt.votationt.repository.PersonRepository;
-import com.nt.votationt.util.HttpGet;
+import com.nt.votationt.util.RestTemplateGet;
 
 @Service
 public class PersonService {
@@ -70,16 +69,12 @@ public class PersonService {
 	public Boolean CpfisAbleToVote(Person person) {
 		person.setcanVote(false);
 		String GetVote = null;
-		try {
-			GetVote = HttpGet.GetCpfState(person.getCpf());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		GetVote = RestTemplateGet.GetCpfState(person.getCpf());
 		String Able = "{\"status\":\"ABLE_TO_VOTE\"}";
 		String Unable = "{\"status\":\"UNABLE_TO_VOTE\"}";
 		System.out.println("CPF: " + person.getCpf() + " --> " + GetVote);
 		if (GetVote.equals(Able)) {
+			person.setcanVote(true);
 			return true;
 		} else if (GetVote.equals(Unable)) {
 			return false;
