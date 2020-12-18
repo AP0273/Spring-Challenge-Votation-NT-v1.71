@@ -27,8 +27,8 @@ public class Schedule {
 	private String category;
 	private String name;
 	private String description;
-	LocalDateTime Start_date;
-	LocalDateTime End_date;
+	LocalDateTime start_date;
+	LocalDateTime end_date;
 	@JsonIgnore
 	private Long n_votes_p = 0L;
 	@JsonIgnore
@@ -109,21 +109,6 @@ public class Schedule {
 		return true;
 	}
 
-	public LocalDateTime getStart_date() {
-		return Start_date;
-	}
-
-	public void setStart_date(LocalDateTime start_date) {
-		Start_date = start_date;
-	}
-
-	public LocalDateTime getEnd_date() {
-		return End_date;
-	}
-
-	public void setEnd_date(LocalDateTime end_date) {
-		End_date = end_date;
-	}
 
 	public String getPassword() {
 		return password;
@@ -147,5 +132,21 @@ public class Schedule {
 
 	public void setN_votes_n(Long n_votes_n) {
 		this.n_votes_n = n_votes_n;
+	}
+
+	public LocalDateTime getStart_date() {
+		return start_date;
+	}
+
+	public void setStart_date(LocalDateTime start_date) {
+		this.start_date = start_date;
+	}
+
+	public LocalDateTime getEnd_date() {
+		return end_date;
+	}
+
+	public void setEnd_date(LocalDateTime end_date) {
+		this.end_date = end_date;
 	}
 }

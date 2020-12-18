@@ -39,7 +39,7 @@ public class ScheduleController {
 
 	@GetMapping("/getbyId/{id}")
 	public Schedule getById(@PathVariable Long id) {
-		return service.FindSchedule(id);
+		return service.findSchedule(id);
 	}
 
 	@GetMapping("/getbyName/{Name}")
@@ -54,7 +54,7 @@ public class ScheduleController {
 
 	@GetMapping("/getVotationState/{id_schedule}")
 	public String getVotationState(@PathVariable Long id_schedule) {
-		return service.CheckScheduleState(id_schedule);
+		return service.checkScheduleState(id_schedule);
 	}
 
 	@GetMapping
@@ -64,12 +64,12 @@ public class ScheduleController {
 
 	@GetMapping("getNumberOfVotes_Schedule/{id}/{aprovation}")
 	public String getNumberOfVotes_Schedule(@PathVariable Long id, boolean aprovation) {
-		return service.GetNumberOfVotes_Schedule(id, aprovation);
+		return service.getNumberOfVotes_Schedule(id, aprovation);
 	}
 
 	@DeleteMapping("/deletebyid/{id}")
 	public String deleteById(@PathVariable Long id) {
-		return service.DeleteSchedule(id);
+		return service.deleteSchedule(id);
 	}
 
 	@PatchMapping

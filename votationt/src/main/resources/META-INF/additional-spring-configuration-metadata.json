@@ -1,0 +1,5 @@
+{"properties": [{
+  "name": "heroku.url",
+  "type": "java.lang.String",
+  "description": "A description for 'heroku.url'"
+}]}

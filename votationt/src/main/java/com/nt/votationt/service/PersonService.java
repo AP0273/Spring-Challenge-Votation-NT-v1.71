@@ -51,14 +51,14 @@ public class PersonService {
 
 	public List<Person> findBycanVote(Boolean canVote) {
 
-		List<Person> list = repository.findBycanVote(canVote);
+		List<Person> list = repository.findByCan_vote(canVote);
 		return list;
 	}
 
 	// checkings
 
 	public Boolean CpfAlreadyExist(Person person) {
-		Person PDB = repository.PersonExist(person.getCpf());
+		Person PDB = repository.findByCpf(person.getCpf());
 		if (PDB != null) {
 			return true;
 		} else {

@@ -26,7 +26,7 @@ public class Vote {
 	private Long id_schedule;
 	private boolean aprovation;
 	// Authentication
-	private Long cpfPerson;
+	private Long cpf_person;
 	@Transient
 	private String password;
 
@@ -37,23 +37,6 @@ public class Vote {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-	public Long getCpf_person() {
-		return cpfPerson;
-	}
-
-	public void setCpf_person(Long cpfPerson) {
-		this.cpfPerson = cpfPerson;
-	}
-
-	public Long getId_schedule() {
-		return id_schedule;
-	}
-
-	public void setId_schedule(Long id_schedule) {
-		this.id_schedule = id_schedule;
-	}
-
 	public boolean isAprovation() {
 		return aprovation;
 	}
@@ -93,6 +76,22 @@ public class Vote {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public Long getId_schedule() {
+		return id_schedule;
+	}
+
+	public void setId_schedule(Long id_schedule) {
+		this.id_schedule = id_schedule;
+	}
+
+	public Long getCpf_person() {
+		return cpf_person;
+	}
+
+	public void setCpf_person(Long cpf_person) {
+		this.cpf_person = cpf_person;
 	}
 
 }

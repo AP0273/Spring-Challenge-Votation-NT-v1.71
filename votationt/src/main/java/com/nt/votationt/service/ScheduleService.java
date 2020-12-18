@@ -21,7 +21,7 @@ public class ScheduleService {
 	private PersonRepository personrepository;
 
 	public Object insertSchedule(Schedule schedule) {
-		Person PDB = personrepository.AuthPerson(schedule.getCpf_proponent(), schedule.getPassword());
+		Person PDB = personrepository.findByCpfAndPassword(schedule.getCpf_proponent(), schedule.getPassword());
 		if (PDB != null) {
 			return schedulerepository.save(schedule);
 		} else {
@@ -29,7 +29,7 @@ public class ScheduleService {
 		}
 	}
 
-	public Schedule FindSchedule(Long id) {
+	public Schedule findSchedule(Long id) {
 		return schedulerepository.getOne(id);
 	}
 
@@ -41,7 +41,7 @@ public class ScheduleService {
 		return schedulerepository.findByNameIgnoreCase(Category);
 	}
 
-	public String DeleteSchedule(Long id) {
+	public String deleteSchedule(Long id) {
 		Schedule schedule = schedulerepository.getOne(id);
 		if (schedule != null) {
 			schedulerepository.delete(schedule);
@@ -51,13 +51,13 @@ public class ScheduleService {
 		}
 	}
 
-	public String GetNumberOfVotes_Schedule(Long id, boolean aprovation) {
-		List<Vote> vt = schedulerepository.findVotes_Schedule(id, aprovation);
+	public String getNumberOfVotes_Schedule(Long id, boolean aprovation) {
+		List<Vote> vt = schedulerepository.findById_scheduleAndAprovation(id, aprovation);
 		int votes = vt.size();
 		if (aprovation == true) {
-			return "Number of Positive Votes = " + Integer.toString(votes) + "\n" + vt;
+			return "Number of Positive Votes = " + votes + "\n" + vt;
 		} else {
-			return "Number of Negative Votes = " + Integer.toString(votes) + "\n" + vt;
+			return "Number of Negative Votes = " + votes + "\n" + vt;
 		}
 
 	}
@@ -71,7 +71,7 @@ public class ScheduleService {
 
 	// The percent calculation is better to do from the front-end to save resources
 	// from the server, i just did it here to test
-	public String CheckScheduleState(Long id_schedule) {
+	public String checkScheduleState(Long id_schedule) {
 		Schedule SDB = schedulerepository.FindScheduleID(id_schedule);
 		if (SDB != null) {
 			Long vp = SDB.getN_votes_p();

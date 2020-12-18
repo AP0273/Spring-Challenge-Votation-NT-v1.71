@@ -23,7 +23,7 @@ public class VoteService {
 
 	public Object insertVote(Vote vote) {
 		// Check Auth
-		Person PDB = personrepository.AuthPerson(vote.getCpf_person(), vote.getPassword());
+		Person PDB = personrepository.findByCpfAndPassword(vote.getCpf_person(), vote.getPassword());
 		if (PDB != null) {
 			if (PDB.iscanVote()) {
 				// Schedule Existence
@@ -33,7 +33,7 @@ public class VoteService {
 					if (LocalDateTime.now().isBefore(SDB.getEnd_date())
 							&& LocalDateTime.now().isAfter(SDB.getStart_date())) {
 						// Check if Already Voted
-						Vote VDB = schedulerepository.xAlreadyVoted(vote.getCpf_person(), vote.getId_schedule());
+						Vote VDB = schedulerepository.findByCpf_personAndId_schedule(vote.getCpf_person(), vote.getId_schedule());
 						if (VDB == null) {
 							boolean voteap = vote.isAprovation();
 							Schedule s = schedulerepository.getOne(vote.getId_schedule());
@@ -71,7 +71,7 @@ public class VoteService {
 	}
 
 	public Vote findByCpfPerson(Long Cpf) {
-		return voterepository.findByCpfPerson(Cpf);
+		return voterepository.findByCpf_person(Cpf);
 	}
 
 	public String DeleteVote(Long id) {
