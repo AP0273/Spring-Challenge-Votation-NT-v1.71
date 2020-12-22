@@ -5,13 +5,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.nt.votationt.model.Person;
 import com.nt.votationt.repository.PersonRepository;
-import com.nt.votationt.util.RestTemplateGet;
+import com.nt.votationt.rest.HerokuClient;
 
 @Service
 public class PersonService {
 
 	@Autowired
 	private PersonRepository repository;
+	
+	@Autowired
+	private HerokuClient herokuClient;
 
 	public Object insertPerson(Person person) {
 		if (CpfisAbleToVote(person) != null) {
@@ -69,7 +72,7 @@ public class PersonService {
 	public Boolean CpfisAbleToVote(Person person) {
 		person.setcanVote(false);
 		String GetVote = null;
-		GetVote = RestTemplateGet.GetCpfState(person.getCpf());
+		GetVote = herokuClient.getCpfState(person.getCpf());
 		String Able = "{\"status\":\"ABLE_TO_VOTE\"}";
 		String Unable = "{\"status\":\"UNABLE_TO_VOTE\"}";
 		System.out.println("CPF: " + person.getCpf() + " --> " + GetVote);

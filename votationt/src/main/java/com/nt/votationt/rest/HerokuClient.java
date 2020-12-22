@@ -1,28 +1,25 @@
-package com.nt.votationt.util;
+package com.nt.votationt.rest;
 
 import java.time.Duration;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
-import com.nt.votationt.util.Config;
-
-public class RestTemplateGet {
+@Component
+public class HerokuClient {
     	
 	@Value("${heroku.url}")
-	private static String heroku_url;
+	private String herokuUrl;
 	
-	public static String GetCpfState(Long Cpf) {
+	public String getCpfState(Long Cpf) {
 		System.out.println();
 		final RestTemplate template = new RestTemplateBuilder().setConnectTimeout(Duration.ofMillis(5000)).build();
 		String result;
 		
 		try {
-			result = template.getForObject(heroku_url + Long.toString(Cpf), String.class);
+			result = template.getForObject(herokuUrl + Long.toString(Cpf), String.class);
 
 		} catch (HttpClientErrorException.NotFound e) {
 			return "Invalid";
