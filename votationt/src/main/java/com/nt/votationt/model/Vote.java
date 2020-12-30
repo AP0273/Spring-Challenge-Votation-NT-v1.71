@@ -1,16 +1,14 @@
 package com.nt.votationt.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
-@Table(name = "vote")
+
 @Entity
 public class Vote {
 
@@ -22,11 +20,10 @@ public class Vote {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@JsonIgnore
 	private Long id;
-	@Column(name = "id_schedule_voted")
-	private Long id_schedule;
+	private Long idSchedule;
 	private boolean aprovation;
 	// Authentication
-	private Long cpf_person;
+	private Long cpfPerson;
 	@Transient
 	private String password;
 
@@ -78,20 +75,23 @@ public class Vote {
 		this.password = password;
 	}
 
-	public Long getId_schedule() {
-		return id_schedule;
+
+	public Long getCpfPerson() {
+		return cpfPerson;
 	}
 
-	public void setId_schedule(Long id_schedule) {
-		this.id_schedule = id_schedule;
+	public void setCpfPerson(Long cpfPerson) {
+		this.cpfPerson = cpfPerson;
 	}
 
-	public Long getCpf_person() {
-		return cpf_person;
+	public Long getIdSchedule() {
+		return idSchedule;
 	}
 
-	public void setCpf_person(Long cpf_person) {
-		this.cpf_person = cpf_person;
+	public void setIdSchedule(Long idSchedule) {
+		this.idSchedule = idSchedule;
 	}
+
+
 
 }

@@ -13,19 +13,17 @@ public class HerokuClient {
 	@Value("${heroku.url}")
 	private String herokuUrl;
 	
-	public String getCpfState(Long Cpf) {
+	public HerokuAnswer getCpfState(Long Cpf) {
 		System.out.println();
 		final RestTemplate template = new RestTemplateBuilder().setConnectTimeout(Duration.ofMillis(5000)).build();
-		String result;
-		
+		HerokuAnswer result = new HerokuAnswer();		
 		try {
-			result = template.getForObject(herokuUrl + Long.toString(Cpf), String.class);
-
+			result = template.getForObject(herokuUrl + Long.toString(Cpf), HerokuAnswer.class);
 		} catch (HttpClientErrorException.NotFound e) {
-			return "Invalid";
+			System.out.println("catch");
+			result.setStatus("INVALID_CPF");
+			return result;
 		}
 		return result;
-
 	}
-
 }

@@ -31,7 +31,7 @@ public class Person {
 	@ApiModelProperty(dataType = "java.sql.Date", notes = "Birthday", example = "1999-01-13")
 	private Date birthday;
 	@JsonIgnore
-	private boolean can_vote;
+	private boolean canVote;
 
 	public Long getCpf() {
 		return cpf;
@@ -80,15 +80,6 @@ public class Person {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	public boolean iscanVote() {
-		return can_vote;
-	}
-
-	public void setcanVote(boolean canVote) {
-		this.can_vote = canVote;
-	}
-
 	public Date getBirthday() {
 		return birthday;
 	}
@@ -97,12 +88,11 @@ public class Person {
 		this.birthday = birthday;
 	}
 
-	public boolean isCan_vote() {
-		return can_vote;
+	public boolean isCanVote() {
+		return canVote;
 	}
 
-	public void setCan_vote(boolean can_vote) {
-		this.can_vote = can_vote;
+	public void setCanVote(boolean canVote) {
+		this.canVote = canVote;
 	}
-
 }

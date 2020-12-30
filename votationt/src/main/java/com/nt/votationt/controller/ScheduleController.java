@@ -28,12 +28,12 @@ public class ScheduleController {
 	}
 
 	@PostMapping
-	public Object create(@RequestBody Schedule schedule) {
+	public Schedule create(@RequestBody Schedule schedule) {
 		return service.insertSchedule(schedule);
 	}
 
 	@PutMapping
-	public Object update(@RequestBody Schedule schedule) {
+	public Schedule update(@RequestBody Schedule schedule) {
 		return service.insertSchedule(schedule);
 	}
 
@@ -48,7 +48,7 @@ public class ScheduleController {
 	}
 
 	@GetMapping("/getbyCategory/{Category}")
-	public Schedule getByCategory(@PathVariable String Category) {
+	public List <Schedule> getByCategory(@PathVariable String Category) {
 		return service.findByCategoryIgnoreCase(Category);
 	}
 
@@ -68,12 +68,12 @@ public class ScheduleController {
 	}
 
 	@DeleteMapping("/deletebyid/{id}")
-	public String deleteById(@PathVariable Long id) {
-		return service.deleteSchedule(id);
+	public void deleteById(@PathVariable Long id) {
+	 service.deleteSchedule(id);
 	}
 
 	@PatchMapping
-	public Object patchUpdate(@RequestBody Schedule schedule) {
+	public Schedule patchUpdate(@RequestBody Schedule schedule) {
 		return service.insertSchedule(schedule);
 	}
 

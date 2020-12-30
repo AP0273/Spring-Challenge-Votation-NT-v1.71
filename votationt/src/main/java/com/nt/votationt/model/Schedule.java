@@ -1,18 +1,15 @@
 package com.nt.votationt.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.persistence.Transient;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "schedule")
 public class Schedule {
 
 	public Schedule() {
@@ -21,7 +18,6 @@ public class Schedule {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id_schedule")
 	@ApiModelProperty(hidden = true)
 	private Long id;
 	private String category;
@@ -34,7 +30,7 @@ public class Schedule {
 	@JsonIgnore
 	private Long n_votes_n = 0L;
 //Auth
-	private Long cpf_proponent;
+	private Long cpfProponent;
 	@Transient
 	private String password;
 
@@ -70,13 +66,6 @@ public class Schedule {
 		this.description = description;
 	}
 
-	public Long getCpf_proponent() {
-		return cpf_proponent;
-	}
-
-	public void setCpf_proponent(Long cpf_proponent) {
-		this.cpf_proponent = cpf_proponent;
-	}
 
 	@Override
 	public int hashCode() {
@@ -148,5 +137,13 @@ public class Schedule {
 
 	public void setEnd_date(LocalDateTime end_date) {
 		this.end_date = end_date;
+	}
+
+	public Long getCpfProponent() {
+		return cpfProponent;
+	}
+
+	public void setCpfProponent(Long cpfProponent) {
+		this.cpfProponent = cpfProponent;
 	}
 }

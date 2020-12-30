@@ -1,4 +1,4 @@
-package com.nt.votationt.controller;
+package com.nt.votationt.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

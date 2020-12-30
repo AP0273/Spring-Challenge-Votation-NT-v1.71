@@ -7,11 +7,11 @@ import org.springframework.data.jpa.repository.Query;
 import com.nt.votationt.model.Vote;
 
 public interface VoteRepository extends JpaRepository<Vote, Long> {
-
-	// Vote findById(Long Id);
-	@Query("FROM Vote WHERE cpf_person = ?1")
-	Vote findByCpf_person(Long cpf_person);
-
-	List<Vote> findByIdAndAprovation(Long Id, boolean aprovation);
+    @Query("FROM Vote WHERE id = ?1")
+	Vote FindByIdVote(Long id);
+    
+	List<Vote> findByCpfPerson(Long cpfPerson);
+	
+	List<Vote> findByIdScheduleAndAprovation(Long idSchedule, boolean Aprovation);
 
 }

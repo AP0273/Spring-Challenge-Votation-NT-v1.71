@@ -8,16 +8,16 @@ import com.nt.votationt.model.Vote;
 
 public interface ScheduleRepository extends JpaRepository<Schedule, Long> {
 
-	@Query("FROM Schedule WHERE id_schedule = ?1")
-	Schedule FindScheduleID(Long id_schedule);
+	@Query("FROM Schedule WHERE id = ?1")
+	Schedule FindById(Long id);
 
 	Schedule findByNameIgnoreCase(String Name);
 
-	Schedule findByCategory(String Category);
+	List<Schedule> findByCategoryIgnoreCase(String Category);
 
-	@Query("FROM Vote WHERE id_schedule = ?1 AND aprovation = ?2")
-	List<Vote> findById_scheduleAndAprovation(Long id_schedule, boolean aprovation);
+	@Query("FROM Vote WHERE idSchedule = ?1 AND aprovation = ?2")
+	List<Vote> findByIdScheduleAndAprovation(Long idSchedule, boolean aprovation);
 
-	@Query("FROM Vote WHERE cpf_person = ?1 AND id_schedule = ?2")
-	Vote findByCpf_personAndId_schedule(Long cpf_person, Long id_schedule);
+	@Query("FROM Vote WHERE cpfPerson = ?1 AND idSchedule = ?2")
+	Vote findByCpfPersonAndIdSchedule(Long cpfPerson, Long idSchedule);
 }

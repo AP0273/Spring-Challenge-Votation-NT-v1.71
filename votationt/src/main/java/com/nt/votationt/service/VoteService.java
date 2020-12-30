@@ -1,9 +1,12 @@
 package com.nt.votationt.service;
 
-import java.time.LocalDateTime;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.nt.votationt.DateCheck.DateCheck;
+import com.nt.votationt.exceptions.ResourceNotFoundExeception;
+import com.nt.votationt.exceptions.UnauthorizedException;
 import com.nt.votationt.model.Person;
 import com.nt.votationt.model.Schedule;
 import com.nt.votationt.model.Vote;
@@ -20,68 +23,61 @@ public class VoteService {
 	private PersonRepository personrepository;
 	@Autowired
 	private ScheduleRepository schedulerepository;
+	@Autowired
+	private PersonService personservice;
+	@Autowired
+	private ScheduleService scheduleservice;
+	@Autowired
+	private DateCheck datecheck;
 
-	public Object insertVote(Vote vote) {
-		// Check Auth
-		Person PDB = personrepository.findByCpfAndPassword(vote.getCpf_person(), vote.getPassword());
-		if (PDB != null) {
-			if (PDB.iscanVote()) {
-				// Schedule Existence
-				Schedule SDB = schedulerepository.FindScheduleID(vote.getId_schedule());
-				if (SDB != null) {
-					// Check Date
-					if (LocalDateTime.now().isBefore(SDB.getEnd_date())
-							&& LocalDateTime.now().isAfter(SDB.getStart_date())) {
-						// Check if Already Voted
-						Vote VDB = schedulerepository.findByCpf_personAndId_schedule(vote.getCpf_person(), vote.getId_schedule());
-						if (VDB == null) {
-							boolean voteap = vote.isAprovation();
-							Schedule s = schedulerepository.getOne(vote.getId_schedule());
-							if (voteap == true) {
-								s.setN_votes_p(s.getN_votes_p() + 1);
-							} else {
-								s.setN_votes_n(s.getN_votes_n() + 1);
-							}
-							return voterepository.save(vote);
-						} else {
-							return "Error, You Already Voted";
-						}
-					} else {
-						return "Error, this voting is closed";
-					}
-				} else {
-					return "Inexistent Schedule";
-				}
-			} else {
-				return "CPF Unable to Vote";
-			}
+	public Vote insertVote(Vote vote) {
+
+		final Person PDB = personrepository.findByCpfAndPassword(vote.getCpfPerson(), vote.getPassword());
+		final Schedule SDB = schedulerepository.FindById(vote.getIdSchedule());
+		if (scheduleservice.isScheduleExist(vote.getIdSchedule()) == false)
+			throw new ResourceNotFoundExeception("Schedule Not Found");
+		if (personservice.Login(vote.getCpfPerson(), vote.getPassword()) == false)
+			throw new UnauthorizedException("CPF or Password are Wrong or Unregistred");
+		if (PDB.isCanVote() == false)
+			throw new UnauthorizedException("CPF Unable to Vote");
+		if (datecheck.isOnGoing(SDB) == false)
+			throw new UnauthorizedException("Error, this voting is closed");
+		if (isAlreadyVoted(vote) == true)
+			throw new UnauthorizedException("Error, You Already Voted");
+		boolean voteap = vote.isAprovation();
+		if (voteap == true) {
+			SDB.setN_votes_p(SDB.getN_votes_p() + 1);
 		} else {
-			return "CPF or Password are Wrong or Unregistred";
+			SDB.setN_votes_n(SDB.getN_votes_n() + 1);
 		}
-
+		return voterepository.save(vote);
 	}
 
-	public Object FindVote(Long id) {
-		Vote vote = voterepository.getOne(id);
-		if (vote != null) {
-			return voterepository.getOne(id);
-		} else {
-			return "Vote not Found";
-		}
+	public boolean isAlreadyVoted(Vote vote) {
+		final Vote VDB = schedulerepository.findByCpfPersonAndIdSchedule(vote.getCpfPerson(), vote.getIdSchedule());
+		boolean result = true;
+		if (VDB == null)
+			result = false;
+		return result;
 	}
 
-	public Vote findByCpfPerson(Long Cpf) {
-		return voterepository.findByCpf_person(Cpf);
+	public Vote FindVote(Long id) {
+		final Vote vote = voterepository.FindByIdVote(id);
+		if (vote == null)
+			throw new ResourceNotFoundExeception("Vote Not Found");
+		return vote;
 	}
 
-	public String DeleteVote(Long id) {
-		Vote vote = voterepository.getOne(id);
-		if (vote != null) {
-			voterepository.delete(vote);
-			return "Vote Deleted!";
-		} else {
-			return "Vote Not Found";
-		}
+	public List<Vote> findByCpfPerson(Long Cpf) {
+		
+		return voterepository.findByCpfPerson(Cpf);
+	}
+
+	public void DeleteVote(Long id) {
+		final Vote vote = voterepository.getOne(id);
+		if (vote == null)
+			throw new ResourceNotFoundExeception("Vote Not Found");
+		voterepository.delete(vote);
 	}
 
 	public List<Vote> getAllVote() {
@@ -91,8 +87,8 @@ public class VoteService {
 		return list;
 	}
 
-	public List<Vote> findByIdAndAprovation(Long Cpf, boolean Aprovation) {
-		return voterepository.findByIdAndAprovation(Cpf, Aprovation);
+	public List<Vote> findByIdScheduleAndAprovation(Long IdSchedule, boolean Aprovation) {
+		return voterepository.findByIdScheduleAndAprovation(IdSchedule, Aprovation);
 	}
 
 }

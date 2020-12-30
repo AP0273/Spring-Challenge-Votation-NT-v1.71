@@ -26,23 +26,23 @@ public class VoteController {
 	}
 
 	@PostMapping
-	public Object create(@RequestBody Vote vote) {
+	public Vote create(@RequestBody Vote vote) {
 		return service.insertVote(vote);
 	}
 
 	@PutMapping
-	public Object update(@RequestBody Vote vote) {
+	public Vote update(@RequestBody Vote vote) {
 		return service.insertVote(vote);
 	}
 
 	@GetMapping("/getbyId/{id}")
-	public Object getById(@PathVariable Long id) {
+	public Vote getById(@PathVariable Long id) {
 		return service.FindVote(id);
 	}
 
 	@GetMapping("/getbyCpfPerson/{CpfPerson}")
-	public Object getByCpfPerson(@PathVariable Long CpfPerson) {
-		return service.FindVote(CpfPerson);
+	public List<Vote> getByCpfPerson(@PathVariable Long CpfPerson) {
+		return service.findByCpfPerson(CpfPerson);
 	}
 
 	@GetMapping
@@ -51,12 +51,12 @@ public class VoteController {
 	}
 
 	@DeleteMapping("/deletebyid/{id}")
-	public String deleteById(@PathVariable Long id) {
-		return service.DeleteVote(id);
+	public void deleteById(@PathVariable Long id) {
+		service.DeleteVote(id);
 	}
 
 	@PatchMapping
-	public Object patchUpdate(@RequestBody Vote vote) {
+	public Vote patchUpdate(@RequestBody Vote vote) {
 		return service.insertVote(vote);
 	}
 }
