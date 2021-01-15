@@ -24,10 +24,9 @@ import com.nt.votationt.service.PersonService;
 
 public class FindByCanVote {
 
-	
 	@InjectMocks
 	private PersonService service;
-	
+
 	@MockBean
 	private PersonRepository repository;
 
@@ -35,16 +34,19 @@ public class FindByCanVote {
 	public void findByCanVotePass() {
 		Boolean canvote = true;
 		Person person = new Person();
-		List <Person> listperson = new ArrayList <Person>();
+		List<Person> listperson = new ArrayList<Person>();
 		listperson.add(person);
-	Mockito.when(repository.findByCanVote(canvote)).thenReturn(listperson);	
-	assertEquals(listperson, service.findBycanVote(canvote));
+		Mockito.when(repository.findByCanVote(canvote)).thenReturn(listperson);
+		assertEquals(listperson, service.findBycanVote(canvote));
 	}
+
 	@Test
 	public void findByCanVoteNotFound() {
 		Boolean canvote = true;
-		List <Person> listperson = new ArrayList <Person>();
-	Mockito.when(repository.findByCanVote(canvote)).thenReturn(listperson);	
-	assertThrows(ResourceNotFoundExeception.class, () -> {service.findBycanVote(canvote);});
+		List<Person> listperson = new ArrayList<Person>();
+		Mockito.when(repository.findByCanVote(canvote)).thenReturn(listperson);
+		assertThrows(ResourceNotFoundExeception.class, () -> {
+			service.findBycanVote(canvote);
+		});
 	}
 }

@@ -23,17 +23,20 @@ public class UpdatePerson {
 
 	@InjectMocks
 	private PersonService service;
-	
+
 	@MockBean
 	private PersonRepository repository;
-	
+
 	@Test
 	public void updatePersonErrorNotFound() {
 		PersonFormUpdate form = new PersonFormUpdate();
 		form.setCpf("85239109052");
 		Mockito.when(repository.findByCpf(form.getCpf())).thenReturn(null);
-		assertThrows(ResourceNotFoundExeception.class, () -> {service.updatePerson(form);});
+		assertThrows(ResourceNotFoundExeception.class, () -> {
+			service.updatePerson(form);
+		});
 	}
+
 	@Test
 	public void updatePersonErrorWrongPassword() {
 		PersonFormUpdate form = new PersonFormUpdate();
@@ -42,7 +45,9 @@ public class UpdatePerson {
 		Person person = new Person();
 		person.setPassword("ASddad*66");
 		Mockito.when(repository.findByCpf(form.getCpf())).thenReturn(person);
-		assertThrows(UnauthorizedException.class, () -> {service.updatePerson(form);});
+		assertThrows(UnauthorizedException.class, () -> {
+			service.updatePerson(form);
+		});
 	}
-	
+
 }

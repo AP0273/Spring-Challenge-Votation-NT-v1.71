@@ -25,22 +25,25 @@ public class GetAllVote {
 
 	@InjectMocks
 	private VoteService service;
-	
+
 	@MockBean
 	private VoteRepository repository;
-	
+
 	@Test
 	public void getAllVotePass() {
 		Vote vote = new Vote();
 		List<Vote> votelist = new ArrayList<Vote>();
 		votelist.add(vote);
 		Mockito.when(repository.findAll()).thenReturn(votelist);
-	    assertEquals(votelist, service.getAllVote());
+		assertEquals(votelist, service.getAllVote());
 	}
+
 	@Test
 	public void getAllVoteErrorNotFound() {
 		List<Vote> votelist = new ArrayList<Vote>();
 		Mockito.when(repository.findAll()).thenReturn(votelist);
-	    assertThrows(ResourceNotFoundExeception.class, () -> {service.getAllVote();});
+		assertThrows(ResourceNotFoundExeception.class, () -> {
+			service.getAllVote();
+		});
 	}
 }

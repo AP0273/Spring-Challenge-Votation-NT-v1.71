@@ -25,24 +25,27 @@ public class FindByCpfPerson {
 
 	@InjectMocks
 	private VoteService service;
-	
+
 	@MockBean
 	private VoteRepository repository;
-	
+
 	@Test
 	public void findByCpfPersonPass() {
 		String cpf = "85239109052";
 		List<Vote> votelist = new ArrayList<Vote>();
- 		Vote vote = new Vote();
- 		votelist.add(vote);
+		Vote vote = new Vote();
+		votelist.add(vote);
 		Mockito.when(repository.findByCpfPerson(cpf)).thenReturn(votelist);
 		assertEquals(votelist, service.findByCpfPerson(cpf));
 	}
+
 	@Test
 	public void findByCpfPersonErrorNotFound() {
 		String cpf = "85239109052";
 		List<Vote> votelist = new ArrayList<Vote>();
 		Mockito.when(repository.findByCpfPerson(cpf)).thenReturn(votelist);
-		assertThrows(ResourceNotFoundExeception.class, () -> {service.findByCpfPerson(cpf);});
+		assertThrows(ResourceNotFoundExeception.class, () -> {
+			service.findByCpfPerson(cpf);
+		});
 	}
 }

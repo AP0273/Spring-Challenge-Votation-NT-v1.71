@@ -31,16 +31,16 @@ public class PersonController {
 
 	@PostMapping
 	public Person create(@RequestBody Person person) {
-		return service.insertPerson(person,"insert");
+		return service.insertPerson(person, "insert");
 	}
 
 	@PutMapping
 	public void update(@RequestBody PersonFormUpdate form) {
-		 service.updatePerson(form);
+		service.updatePerson(form);
 	}
-	
+
 	@GetMapping("/getbyCpf/{cpf}")
-	public Person getByCpf(@PathVariable String cpf)  {
+	public Person getByCpf(@PathVariable String cpf) {
 		return service.findPerson(cpf);
 	}
 
@@ -66,7 +66,6 @@ public class PersonController {
 
 	@PatchMapping
 	public void patchUpdate(@RequestBody PersonFormUpdate form) {
-	service.updatePerson(form);
+		service.updatePerson(form);
 	}
 }
-

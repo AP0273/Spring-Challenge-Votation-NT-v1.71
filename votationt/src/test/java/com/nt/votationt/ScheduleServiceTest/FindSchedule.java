@@ -3,8 +3,6 @@ package com.nt.votationt.ScheduleServiceTest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -24,25 +22,25 @@ public class FindSchedule {
 
 	@InjectMocks
 	private ScheduleService service;
-	
+
 	@MockBean
 	private ScheduleRepository repository;
 
-	
-@Test
+	@Test
 	public void findSchedulePass() {
-	    Schedule schedule = new Schedule();
+		Schedule schedule = new Schedule();
 		schedule.setIdschedule(1L);
 		Mockito.when(repository.findByIdschedule(schedule.getIdschedule())).thenReturn(schedule);
 		assertEquals(schedule, service.findSchedule(schedule.getIdschedule()));
 	}
+
 	@Test
 	public void findPersonErrorNotFound() {
 		Schedule schedule = new Schedule();
 		schedule.setIdschedule(1L);
 		Mockito.when(repository.findByIdschedule(schedule.getIdschedule())).thenReturn(null);
-		assertThrows(ResourceNotFoundExeception.class, () -> {service.findSchedule(schedule.getIdschedule());});
+		assertThrows(ResourceNotFoundExeception.class, () -> {
+			service.findSchedule(schedule.getIdschedule());
+		});
 	}
 }
-
-

@@ -25,13 +25,13 @@ public class DeleteSchedule {
 
 	@InjectMocks
 	private ScheduleService service;
-	
+
 	@MockBean
 	private ScheduleRepository repository;
-	
+
 	@MockBean
 	private PersonService personservice;
-	
+
 	@Test
 	public void deleteScheduleErrorNotFound() {
 		Long id = 1L;
@@ -39,19 +39,23 @@ public class DeleteSchedule {
 		form.setCpf("85239109052");
 		Mockito.when(repository.findByIdschedule(id)).thenReturn(null);
 		assertThrows(ResourceNotFoundExeception.class, () -> {
-			service.deleteSchedule(form,id);
+			service.deleteSchedule(form, id);
 		});
-		
+
 	}
+
 	@Test
 	public void deleteScheduleErrorOnlyTheAuthorCanDelete() {
 		Long id = 1L;
 		DeletionForm form = new DeletionForm();
 		form.setCpf("85239109052");
 		Mockito.when(repository.findByIdschedule(id)).thenReturn(new Schedule());
-	  	   var exception = assertThrows(UnauthorizedException.class, () -> {service.deleteSchedule(form,id);});
-	       assertEquals("Unauthorized, Only the Author can delete the schedule" , exception.getMessage());
-}
+		var exception = assertThrows(UnauthorizedException.class, () -> {
+			service.deleteSchedule(form, id);
+		});
+		assertEquals("Unauthorized, Only the Author can delete the schedule", exception.getMessage());
+	}
+
 	@Test
 	public void deleteScheduleErrorWrongPassword() {
 		Long id = 1L;
@@ -60,9 +64,11 @@ public class DeleteSchedule {
 		Schedule schedule = new Schedule();
 		schedule.setCpfProponent(form.getCpf());
 		Mockito.when(repository.findByIdschedule(id)).thenReturn(schedule);
-		Mockito.when(personservice.login(form.getCpf(),form.getPassword())).thenReturn(false);
-	  	   var exception = assertThrows(UnauthorizedException.class, () -> {service.deleteSchedule(form,id);});
-	       assertEquals("Unauthorized Wrong Password" , exception.getMessage());
-}
-	
+		Mockito.when(personservice.login(form.getCpf(), form.getPassword())).thenReturn(false);
+		var exception = assertThrows(UnauthorizedException.class, () -> {
+			service.deleteSchedule(form, id);
+		});
+		assertEquals("Unauthorized Wrong Password", exception.getMessage());
+	}
+
 }

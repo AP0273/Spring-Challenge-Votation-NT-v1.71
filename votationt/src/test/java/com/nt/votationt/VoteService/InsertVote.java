@@ -31,23 +31,25 @@ public class InsertVote {
 
 	@InjectMocks
 	private VoteService formservice;
-	
+
 	@MockBean
 	private VoteRepository formrepository;
-	
-	@MockBean 
+
+	@MockBean
 	private ScheduleRepository schedulerepository;
-	
-	@MockBean 
+
+	@MockBean
 	private ScheduleService scheduleservice;
-	
+
 	@MockBean
 	private PersonService personservice;
-	
-	@MockBean 
+
+	@MockBean
 	private PersonRepository personrepository;
-	
-	@MockBean private DateCheck datecheck;
+
+	@MockBean
+	private DateCheck datecheck;
+
 	@Test
 	public void insertVotePass() {
 		VoteFormInsert form = new VoteFormInsert();
@@ -61,11 +63,12 @@ public class InsertVote {
 		Mockito.when(scheduleservice.isScheduleExist(schedule.getIdschedule())).thenReturn(true);
 		Mockito.when(schedulerepository.findByIdschedule(form.getIdschedule())).thenReturn(schedule);
 		Mockito.when(personservice.login(form.getCpfPerson(), form.getPassword())).thenReturn(true);
-	    Mockito.when(personrepository.findByCpf(form.getCpfPerson())).thenReturn(person);
-	    Mockito.when(datecheck.isOnGoing(schedule)).thenReturn(true);
-	    Mockito.when(scheduleservice.isAlreadyVoted(form)).thenReturn(false);
-	    assertEquals(formrepository.save(new Vote(form)), formservice.insertVote(form));
+		Mockito.when(personrepository.findByCpf(form.getCpfPerson())).thenReturn(person);
+		Mockito.when(datecheck.isOnGoing(schedule)).thenReturn(true);
+		Mockito.when(scheduleservice.isAlreadyVoted(form)).thenReturn(false);
+		assertEquals(formrepository.save(new Vote(form)), formservice.insertVote(form));
 	}
+
 	@Test
 	public void insertVoteErrorScheduleNotFound() {
 		VoteFormInsert form = new VoteFormInsert();
@@ -77,9 +80,12 @@ public class InsertVote {
 		Person person = new Person();
 		person.setCanVote(true);
 		Mockito.when(scheduleservice.isScheduleExist(schedule.getIdschedule())).thenReturn(false);
-	   var Exception = assertThrows(ResourceNotFoundExeception.class, () -> {formservice.insertVote(form);});
-	    assertEquals("Error Schedule Not Found", Exception.getMessage());
+		var Exception = assertThrows(ResourceNotFoundExeception.class, () -> {
+			formservice.insertVote(form);
+		});
+		assertEquals("Error Schedule Not Found", Exception.getMessage());
 	}
+
 	@Test
 	public void insertVoteErrorUnauthorizedLogin() {
 		VoteFormInsert form = new VoteFormInsert();
@@ -93,9 +99,12 @@ public class InsertVote {
 		Mockito.when(scheduleservice.isScheduleExist(schedule.getIdschedule())).thenReturn(true);
 		Mockito.when(schedulerepository.findByIdschedule(form.getIdschedule())).thenReturn(schedule);
 		Mockito.when(personservice.login(form.getCpfPerson(), form.getPassword())).thenReturn(false);
-	   var Exception = assertThrows(UnauthorizedException.class, () -> {formservice.insertVote(form);});
-	    assertEquals("CPF or Password are Wrong or Unregistred", Exception.getMessage());
+		var Exception = assertThrows(UnauthorizedException.class, () -> {
+			formservice.insertVote(form);
+		});
+		assertEquals("CPF or Password are Wrong or Unregistred", Exception.getMessage());
 	}
+
 	@Test
 	public void insertVoteErrorPersonUnableToVote() {
 		VoteFormInsert form = new VoteFormInsert();
@@ -109,10 +118,13 @@ public class InsertVote {
 		Mockito.when(scheduleservice.isScheduleExist(schedule.getIdschedule())).thenReturn(true);
 		Mockito.when(schedulerepository.findByIdschedule(form.getIdschedule())).thenReturn(schedule);
 		Mockito.when(personservice.login(form.getCpfPerson(), form.getPassword())).thenReturn(true);
-	    Mockito.when(personrepository.findByCpf(form.getCpfPerson())).thenReturn(person);
-	   var Exception = assertThrows(UnauthorizedException.class, () -> {formservice.insertVote(form);});
-	    assertEquals("CPF Unable to Vote", Exception.getMessage());
+		Mockito.when(personrepository.findByCpf(form.getCpfPerson())).thenReturn(person);
+		var Exception = assertThrows(UnauthorizedException.class, () -> {
+			formservice.insertVote(form);
+		});
+		assertEquals("CPF Unable to Vote", Exception.getMessage());
 	}
+
 	@Test
 	public void insertVoteErrorVotingClosed() {
 		VoteFormInsert form = new VoteFormInsert();
@@ -126,11 +138,14 @@ public class InsertVote {
 		Mockito.when(scheduleservice.isScheduleExist(schedule.getIdschedule())).thenReturn(true);
 		Mockito.when(schedulerepository.findByIdschedule(form.getIdschedule())).thenReturn(schedule);
 		Mockito.when(personservice.login(form.getCpfPerson(), form.getPassword())).thenReturn(true);
-	    Mockito.when(personrepository.findByCpf(form.getCpfPerson())).thenReturn(person);
-	   Mockito.when(datecheck.isOnGoing(schedule)).thenReturn(false);
-	   var Exception = assertThrows(UnauthorizedException.class, () -> {formservice.insertVote(form);});
-	    assertEquals("Error, this voting is closed", Exception.getMessage());
+		Mockito.when(personrepository.findByCpf(form.getCpfPerson())).thenReturn(person);
+		Mockito.when(datecheck.isOnGoing(schedule)).thenReturn(false);
+		var Exception = assertThrows(UnauthorizedException.class, () -> {
+			formservice.insertVote(form);
+		});
+		assertEquals("Error, this voting is closed", Exception.getMessage());
 	}
+
 	@Test
 	public void insertVoteErrorAlreadyVoted() {
 		VoteFormInsert form = new VoteFormInsert();
@@ -144,10 +159,12 @@ public class InsertVote {
 		Mockito.when(scheduleservice.isScheduleExist(schedule.getIdschedule())).thenReturn(true);
 		Mockito.when(schedulerepository.findByIdschedule(form.getIdschedule())).thenReturn(schedule);
 		Mockito.when(personservice.login(form.getCpfPerson(), form.getPassword())).thenReturn(true);
-	    Mockito.when(personrepository.findByCpf(form.getCpfPerson())).thenReturn(person);
-	    Mockito.when(datecheck.isOnGoing(schedule)).thenReturn(true);
-	    Mockito.when(scheduleservice.isAlreadyVoted(form)).thenReturn(true);
-	   var exception = assertThrows(UnauthorizedException.class, () -> {formservice.insertVote(form);});
-	    assertEquals("Error, You Already Voted", exception.getMessage());
+		Mockito.when(personrepository.findByCpf(form.getCpfPerson())).thenReturn(person);
+		Mockito.when(datecheck.isOnGoing(schedule)).thenReturn(true);
+		Mockito.when(scheduleservice.isAlreadyVoted(form)).thenReturn(true);
+		var exception = assertThrows(UnauthorizedException.class, () -> {
+			formservice.insertVote(form);
+		});
+		assertEquals("Error, You Already Voted", exception.getMessage());
 	}
 }

@@ -27,12 +27,12 @@ public class CheckScheduleState {
 
 	@InjectMocks
 	private ScheduleService service;
-	
+
 	@MockBean
 	private ScheduleRepository repository;
-	@MockBean 
+	@MockBean
 	DateCheck datecheck;
-	
+
 	@Test
 	public void checkScheduleStatePass() {
 		Long scheduleid = 1L;
@@ -45,14 +45,18 @@ public class CheckScheduleState {
 		Long vn = schedule.getN_votes_n();
 		Mockito.when(repository.findByIdschedule(scheduleid)).thenReturn(schedule);
 		Mockito.when(datecheck.checkStatus(schedule)).thenReturn("Ongoing");
-		String percent =  Double.toString((100 * vp) / (vp + vn)) + "%";
-		ScheduleStatusDTO statusdto = new ScheduleStatusDTO(schedule.getStart_date(),schedule.getEnd_date(),"Ongoing",vp,vn,percent);
+		String percent = Double.toString((100 * vp) / (vp + vn)) + "%";
+		ScheduleStatusDTO statusdto = new ScheduleStatusDTO(schedule.getStart_date(), schedule.getEnd_date(), "Ongoing",
+				vp, vn, percent);
 		assertThat(statusdto.equals(service.checkScheduleState(scheduleid)));
 	}
+
 	@Test
 	public void checkScheduleStateErrorNotFound() {
 		Long scheduleid = 1L;
 		Mockito.when(repository.findByIdschedule(scheduleid)).thenReturn(null);
-		assertThrows(ResourceNotFoundExeception.class, () -> {service.checkScheduleState(scheduleid);});
+		assertThrows(ResourceNotFoundExeception.class, () -> {
+			service.checkScheduleState(scheduleid);
+		});
 	}
 }

@@ -24,26 +24,29 @@ public class InsertSchedule {
 
 	@InjectMocks
 	private ScheduleService formservice;
-	
+
 	@MockBean
 	private ScheduleRepository repository;
 	@MockBean
 	private PersonService personservice;
-	
+
 	@Test
 	public void insertSchedulePass() {
 		ScheduleFormInsert form = new ScheduleFormInsert();
 		form.setCpfProponent("85239109052");
 		form.setPassword("password_desu");
-	Mockito.when(personservice.login(form.getCpfProponent(), form.getPassword())).thenReturn(true);
-	assertEquals(repository.save(new Schedule (form)), formservice.insertSchedule(form,null));
+		Mockito.when(personservice.login(form.getCpfProponent(), form.getPassword())).thenReturn(true);
+		assertEquals(repository.save(new Schedule(form)), formservice.insertSchedule(form, null));
 	}
+
 	@Test
 	public void insertErrorUnauthorizedLogin() {
 		ScheduleFormInsert form = new ScheduleFormInsert();
 		form.setCpfProponent("85239109052");
 		form.setPassword("password_desu");
-	Mockito.when(personservice.login(form.getCpfProponent(), "WrongPassword")).thenReturn(true);
-	assertThrows(UnauthorizedException.class, () -> {formservice.insertSchedule(form,null);});
+		Mockito.when(personservice.login(form.getCpfProponent(), "WrongPassword")).thenReturn(true);
+		assertThrows(UnauthorizedException.class, () -> {
+			formservice.insertSchedule(form, null);
+		});
 	}
 }

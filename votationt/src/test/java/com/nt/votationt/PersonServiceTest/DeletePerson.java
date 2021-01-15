@@ -1,6 +1,5 @@
 package com.nt.votationt.PersonServiceTest;
 
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -30,7 +29,6 @@ public class DeletePerson {
 	@MockBean
 	private PersonRepository repository;
 
-
 	@Test
 	public void deletePersonErrorNotFound() {
 		DeletionForm form = new DeletionForm();
@@ -50,8 +48,10 @@ public class DeletePerson {
 		schedule.setCpfProponent(form.getCpf());
 		Mockito.when(repository.findByCpf(form.getCpf())).thenReturn(new Person());
 		Mockito.when(repository.findByCpfAndPassword(form.getCpf(), form.getPassword())).thenReturn(null);
-	  	   var exception = assertThrows(UnauthorizedException.class, () -> {service.deletePerson(form);});
-	       assertEquals("Unauthorized Wrong Password" , exception.getMessage());
-}
-	
+		var exception = assertThrows(UnauthorizedException.class, () -> {
+			service.deletePerson(form);
+		});
+		assertEquals("Unauthorized Wrong Password", exception.getMessage());
+	}
+
 }

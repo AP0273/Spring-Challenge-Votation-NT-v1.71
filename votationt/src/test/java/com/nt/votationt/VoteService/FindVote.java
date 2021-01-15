@@ -21,21 +21,24 @@ import com.nt.votationt.service.VoteService;
 public class FindVote {
 	@InjectMocks
 	private VoteService service;
-	
+
 	@MockBean
 	private VoteRepository repository;
 
 	@Test
 	public void findVotePass() {
-		Long id=1L;
+		Long id = 1L;
 		Vote vote = new Vote();
 		Mockito.when(repository.FindById(id)).thenReturn(vote);
 		assertEquals(vote, service.findVote(id));
 	}
+
 	@Test
 	public void findVoteErrorNotFound() {
-		Long id=1L;
+		Long id = 1L;
 		Mockito.when(repository.FindById(id)).thenReturn(null);
-		assertThrows(ResourceNotFoundExeception.class, () -> {service.findVote(id);});
+		assertThrows(ResourceNotFoundExeception.class, () -> {
+			service.findVote(id);
+		});
 	}
 }

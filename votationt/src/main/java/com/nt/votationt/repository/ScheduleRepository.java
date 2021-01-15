@@ -9,11 +9,11 @@ import com.nt.votationt.model.Vote;
 
 public interface ScheduleRepository extends JpaRepository<Schedule, Long> {
 
-    Schedule findByIdschedule(Long Id);
-    
-    Schedule findByCpfProponent(Long id);
-    
-	List <Schedule> findByNameIgnoreCase(String Name);
+	Schedule findByIdschedule(Long Id);
+
+	Schedule findByCpfProponent(Long id);
+
+	List<Schedule> findByNameIgnoreCase(String Name);
 
 	List<Schedule> findByCategoryIgnoreCase(String Category);
 
@@ -22,5 +22,5 @@ public interface ScheduleRepository extends JpaRepository<Schedule, Long> {
 
 	@Query("FROM Vote WHERE cpfPerson = ?1 AND idSchedule = ?2")
 	Vote findByCpfPersonAndIdSchedule(String cpfPerson, Long idSchedule);
-	
+
 }

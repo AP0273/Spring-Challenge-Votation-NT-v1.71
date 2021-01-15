@@ -25,23 +25,25 @@ public class GetAllSchedule {
 
 	@InjectMocks
 	private ScheduleService service;
-	
+
 	@MockBean
 	private ScheduleRepository repository;
-	
+
 	@Test
 	public void getAllSchedulePass() {
 		Schedule schedule = new Schedule();
-		List <Schedule> listschedule = new ArrayList <Schedule>();
+		List<Schedule> listschedule = new ArrayList<Schedule>();
 		listschedule.add(schedule);
-	Mockito.when(repository.findAll()).thenReturn(listschedule);	
-	assertEquals(listschedule, service.getAllSchedule());
+		Mockito.when(repository.findAll()).thenReturn(listschedule);
+		assertEquals(listschedule, service.getAllSchedule());
 	}
+
 	@Test
 	public void getAllPersonErrorNotFound() {
-		List <Schedule> listschedule = new ArrayList <Schedule>();
+		List<Schedule> listschedule = new ArrayList<Schedule>();
 		Mockito.when(repository.findAll()).thenReturn(listschedule);
-	assertThrows(ResourceNotFoundExeception.class, () -> {service.getAllSchedule();});
+		assertThrows(ResourceNotFoundExeception.class, () -> {
+			service.getAllSchedule();
+		});
 	}
 }
-

@@ -25,7 +25,7 @@ public class FindByNameIgnoreCase {
 
 	@InjectMocks
 	private ScheduleService service;
-	
+
 	@MockBean
 	private ScheduleRepository repository;
 
@@ -33,16 +33,19 @@ public class FindByNameIgnoreCase {
 	public void findByNamePass() {
 		String Name = "Random Name";
 		Schedule schedule = new Schedule();
-		List <Schedule> listschedule = new ArrayList <Schedule>();
+		List<Schedule> listschedule = new ArrayList<Schedule>();
 		listschedule.add(schedule);
-	Mockito.when(repository.findByNameIgnoreCase(Name)).thenReturn(listschedule);	
-	assertEquals(listschedule, service.findByNameIgnoreCase(Name));
+		Mockito.when(repository.findByNameIgnoreCase(Name)).thenReturn(listschedule);
+		assertEquals(listschedule, service.findByNameIgnoreCase(Name));
 	}
+
 	@Test
 	public void findByFullNameErrorNotFound() {
 		String Name = "Random Name";
-		List <Schedule> listschedule = new ArrayList <Schedule>();
+		List<Schedule> listschedule = new ArrayList<Schedule>();
 		Mockito.when(repository.findByNameIgnoreCase(Name)).thenReturn(listschedule);
-	assertThrows(ResourceNotFoundExeception.class, () -> {service.findByNameIgnoreCase(Name);});
+		assertThrows(ResourceNotFoundExeception.class, () -> {
+			service.findByNameIgnoreCase(Name);
+		});
 	}
 }

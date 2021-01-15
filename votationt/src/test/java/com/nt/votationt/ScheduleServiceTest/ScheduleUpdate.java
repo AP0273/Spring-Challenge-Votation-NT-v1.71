@@ -26,43 +26,49 @@ public class ScheduleUpdate {
 
 	@InjectMocks
 	private ScheduleService scheduleservice;
-	
+
 	@MockBean
 	private ScheduleRepository repository;
-	
-	@MockBean PersonService personservice;
 
+	@MockBean
+	PersonService personservice;
 
-	
 	@Test
 	public void scheduleUpdatePass() {
-	    ScheduleFormUpdate form = new ScheduleFormUpdate();
-	    form.setIdschedule(1L);
-	    form.setCpfProponent("85239109052");
-	    form.setPassword("SomePassword");
-	    Schedule schedule = new Schedule();
-	    schedule.setCpfProponent("85239109052");
+		ScheduleFormUpdate form = new ScheduleFormUpdate();
+		form.setIdschedule(1L);
+		form.setCpfProponent("85239109052");
+		form.setPassword("SomePassword");
+		Schedule schedule = new Schedule();
+		schedule.setCpfProponent("85239109052");
 		Mockito.when(repository.findByIdschedule(form.getIdschedule())).thenReturn(schedule);
 		Mockito.when(personservice.login(form.getCpfProponent(), form.getPassword())).thenReturn(true);
-		assertEquals(scheduleservice.insertSchedule(new ScheduleFormInsert(form), form.getIdschedule()), scheduleservice.updateSchedule(form));
+		assertEquals(scheduleservice.insertSchedule(new ScheduleFormInsert(form), form.getIdschedule()),
+				scheduleservice.updateSchedule(form));
 	}
+
 	@Test
 	public void scheduleUpdateErrorNotFound() {
-	    ScheduleFormUpdate form = new ScheduleFormUpdate();
-	    form.setIdschedule(1L);
+		ScheduleFormUpdate form = new ScheduleFormUpdate();
+		form.setIdschedule(1L);
 		Mockito.when(repository.findByIdschedule(form.getIdschedule())).thenReturn(null);
-		assertThrows(ResourceNotFoundExeception.class, () -> {scheduleservice.updateSchedule(form);});
+		assertThrows(ResourceNotFoundExeception.class, () -> {
+			scheduleservice.updateSchedule(form);
+		});
 	}
+
 	@Test
 	public void scheduleUpdateErrorNotTheAuthor() {
-	    ScheduleFormUpdate form = new ScheduleFormUpdate();
-	    form.setIdschedule(1L);
-	    form.setCpfProponent("85239109052");
-	    form.setPassword("SomePassword");
-	    Schedule schedule = new Schedule();
-	    schedule.setCpfProponent("85239109052");
+		ScheduleFormUpdate form = new ScheduleFormUpdate();
+		form.setIdschedule(1L);
+		form.setCpfProponent("85239109052");
+		form.setPassword("SomePassword");
+		Schedule schedule = new Schedule();
+		schedule.setCpfProponent("85239109052");
 		Mockito.when(repository.findByIdschedule(form.getIdschedule())).thenReturn(schedule);
 		Mockito.when(personservice.login(form.getCpfProponent(), form.getPassword())).thenReturn(false);
-		assertThrows(UnauthorizedException.class, () -> {scheduleservice.updateSchedule(form);});
+		assertThrows(UnauthorizedException.class, () -> {
+			scheduleservice.updateSchedule(form);
+		});
 	}
 }

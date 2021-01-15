@@ -22,10 +22,10 @@ public class FindPerson {
 
 	@InjectMocks
 	private PersonService service;
-	
+
 	@MockBean
 	private PersonRepository repository;
-	
+
 	@Test
 	public void findPersonPass() {
 		Person person = new Person();
@@ -33,11 +33,14 @@ public class FindPerson {
 		Mockito.when(repository.findByCpf(person.getCpf())).thenReturn(person);
 		assertEquals(person, service.findPerson(person.getCpf()));
 	}
+
 	@Test
 	public void findPersonErrorNotFound() {
 		Person person = new Person();
 		person.setCpf("85239109052");
 		Mockito.when(repository.findByCpf(person.getCpf())).thenReturn(null);
-		assertThrows(ResourceNotFoundExeception.class, () -> {service.findPerson(person.getCpf());});
+		assertThrows(ResourceNotFoundExeception.class, () -> {
+			service.findPerson(person.getCpf());
+		});
 	}
 }

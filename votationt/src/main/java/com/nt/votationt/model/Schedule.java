@@ -15,13 +15,14 @@ public class Schedule {
 	public Schedule() {
 
 	}
+
 	public Schedule(ScheduleFormInsert form) {
-	this.category = form.getCategory();
-	this.name = form.getName();
-	this.description = form.getDescription();
-	this.start_date = form.getStart_date();
-	this.end_date = form.getEnd_date();
-	this.cpfProponent = form.getCpfProponent();
+		this.category = form.getCategory();
+		this.name = form.getName();
+		this.description = form.getDescription();
+		this.start_date = form.getStart_date();
+		this.end_date = form.getEnd_date();
+		this.cpfProponent = form.getCpfProponent();
 
 	}
 
@@ -42,7 +43,6 @@ public class Schedule {
 	private Long n_votes_n = 0L;
 //Auth
 	private String cpfProponent;
-
 
 	public String getCategory() {
 		return category;
@@ -67,6 +67,7 @@ public class Schedule {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
 	public Long getN_votes_p() {
 		return n_votes_p;
 	}
@@ -140,5 +141,4 @@ public class Schedule {
 		return true;
 	}
 
-	
 }

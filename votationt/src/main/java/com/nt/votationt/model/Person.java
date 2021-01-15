@@ -19,11 +19,11 @@ public class Person {
 	public Person() {
 
 	}
-	
+
 	public Person(PersonFormUpdate form) {
 		this.cpf = form.getCpf();
-        this.password = form.getNewpassword();
-        this.fullname = form.getFullname();
+		this.password = form.getNewpassword();
+		this.fullname = form.getFullname();
 		this.phone = form.getPhone();
 		this.adress = form.getAdress();
 		this.email = form.getEmail();
@@ -50,7 +50,7 @@ public class Person {
 	private Date birthday;
 	@JsonIgnore
 	private boolean canVote;
-	
+
 	public String getCpf() {
 		return cpf;
 	}
@@ -62,9 +62,11 @@ public class Person {
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	public String getPhone() {
 		return phone;
 	}
@@ -88,6 +90,7 @@ public class Person {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public Date getBirthday() {
 		return birthday;
 	}

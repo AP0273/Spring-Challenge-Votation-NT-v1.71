@@ -22,10 +22,10 @@ import com.nt.votationt.service.PersonService;
 @ExtendWith(MockitoExtension.class)
 @ExtendWith(SpringExtension.class)
 public class PersonFindByFullNameIgnoreCase {
-	
+
 	@InjectMocks
 	private PersonService service;
-	
+
 	@MockBean
 	private PersonRepository repository;
 
@@ -33,16 +33,19 @@ public class PersonFindByFullNameIgnoreCase {
 	public void findByFullNamePass() {
 		String name = "Random Name";
 		Person person = new Person();
-		List <Person> listperson = new ArrayList <Person>();
+		List<Person> listperson = new ArrayList<Person>();
 		listperson.add(person);
-	Mockito.when(repository.findByFullnameIgnoreCase(name)).thenReturn(listperson);	
-	assertEquals(listperson, service.findByFullNameIgnoreCase(name));
+		Mockito.when(repository.findByFullnameIgnoreCase(name)).thenReturn(listperson);
+		assertEquals(listperson, service.findByFullNameIgnoreCase(name));
 	}
+
 	@Test
 	public void findByFullNameErrorNotFound() {
 		String name = "Random Name";
-		List <Person> listperson = new ArrayList <Person>();
-	Mockito.when(repository.findByFullnameIgnoreCase(name)).thenReturn(listperson);	
-	assertThrows(ResourceNotFoundExeception.class, () -> {service.findByFullNameIgnoreCase(name);});
+		List<Person> listperson = new ArrayList<Person>();
+		Mockito.when(repository.findByFullnameIgnoreCase(name)).thenReturn(listperson);
+		assertThrows(ResourceNotFoundExeception.class, () -> {
+			service.findByFullNameIgnoreCase(name);
+		});
 	}
 }

@@ -46,9 +46,8 @@ public class VoteController {
 	}
 
 	@DeleteMapping("/deletebyid/{id}")
-	public void deleteById(@RequestBody DeletionForm form,@PathVariable Long id) {
-		service.deleteVote(form,id);
+	public void deleteById(@RequestBody DeletionForm form, @PathVariable Long id) {
+		service.deleteVote(form, id);
 	}
-
 
 }

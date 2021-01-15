@@ -33,7 +33,7 @@ public class ScheduleController {
 
 	@PostMapping
 	public Schedule create(@RequestBody ScheduleFormInsert form) {
-		return service.insertSchedule(form,null);
+		return service.insertSchedule(form, null);
 	}
 
 	@PutMapping
@@ -47,12 +47,12 @@ public class ScheduleController {
 	}
 
 	@GetMapping("/getbyName/{Name}")
-	public List <Schedule> getById(@PathVariable String Name) {
+	public List<Schedule> getById(@PathVariable String Name) {
 		return service.findByNameIgnoreCase(Name);
 	}
 
 	@GetMapping("/getbyCategory/{Category}")
-	public List <Schedule> getByCategory(@PathVariable String Category) {
+	public List<Schedule> getByCategory(@PathVariable String Category) {
 		return service.findByCategoryIgnoreCase(Category);
 	}
 
@@ -65,9 +65,10 @@ public class ScheduleController {
 	public List<Schedule> getAll() {
 		return service.getAllSchedule();
 	}
+
 	@DeleteMapping("/deletebyid/{id}")
-	public void deleteById(@RequestBody DeletionForm form,@PathVariable Long id) {
-	 service.deleteSchedule(form,id);
+	public void deleteById(@RequestBody DeletionForm form, @PathVariable Long id) {
+		service.deleteSchedule(form, id);
 	}
 
 	@PatchMapping

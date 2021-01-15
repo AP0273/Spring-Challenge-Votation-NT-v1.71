@@ -3,11 +3,8 @@ package com.nt.votationt.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import com.nt.votationt.forms.VoteFormInsert;
-
-
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-
 
 @Entity
 public class Vote {
@@ -23,7 +20,6 @@ public class Vote {
 
 	}
 
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -38,6 +34,7 @@ public class Vote {
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public boolean isAprovation() {
 		return aprovation;
 	}
@@ -71,7 +68,6 @@ public class Vote {
 		return true;
 	}
 
-
 	public String getCpfPerson() {
 		return cpfPerson;
 	}
@@ -87,7 +83,5 @@ public class Vote {
 	public void setIdschedule(Long idSchedule) {
 		this.idschedule = idSchedule;
 	}
-
-
 
 }
