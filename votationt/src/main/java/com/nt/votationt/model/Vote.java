@@ -2,9 +2,9 @@ package com.nt.votationt.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Transient;
+import com.nt.votationt.forms.VoteFormInsert;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
@@ -16,16 +16,20 @@ public class Vote {
 
 	}
 
+	public Vote(VoteFormInsert form) {
+		this.idschedule = form.getIdschedule();
+		this.aprovation = form.isAprovation();
+		this.cpfPerson = form.getCpfPerson();
+
+	}
+
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@JsonIgnore
 	private Long id;
-	private Long idSchedule;
+	private Long idschedule;
 	private boolean aprovation;
-	// Authentication
-	private Long cpfPerson;
-	@Transient
-	private String password;
+	private String cpfPerson;
 
 	public Long getId() {
 		return id;
@@ -67,29 +71,21 @@ public class Vote {
 		return true;
 	}
 
-	public String getPassword() {
-		return password;
-	}
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-
-	public Long getCpfPerson() {
+	public String getCpfPerson() {
 		return cpfPerson;
 	}
 
-	public void setCpfPerson(Long cpfPerson) {
+	public void setCpfPerson(String cpfPerson) {
 		this.cpfPerson = cpfPerson;
 	}
 
-	public Long getIdSchedule() {
-		return idSchedule;
+	public Long getIdschedule() {
+		return idschedule;
 	}
 
-	public void setIdSchedule(Long idSchedule) {
-		this.idSchedule = idSchedule;
+	public void setIdschedule(Long idSchedule) {
+		this.idschedule = idSchedule;
 	}
 
 

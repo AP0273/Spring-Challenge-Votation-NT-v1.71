@@ -1,12 +1,12 @@
 package com.nt.votationt.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Transient;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import io.swagger.annotations.ApiModelProperty;
+import com.nt.votationt.forms.ScheduleFormInsert;
 import java.time.LocalDateTime;
 
 @Entity
@@ -15,13 +15,24 @@ public class Schedule {
 	public Schedule() {
 
 	}
+	public Schedule(ScheduleFormInsert form) {
+	this.category = form.getCategory();
+	this.name = form.getName();
+	this.description = form.getDescription();
+	this.start_date = form.getStart_date();
+	this.end_date = form.getEnd_date();
+	this.cpfProponent = form.getCpfProponent();
+
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@ApiModelProperty(hidden = true)
-	private Long id;
+	private Long idschedule;
+	@Column(length = 40)
 	private String category;
+	@Column(length = 80)
 	private String name;
+	@Column(length = 1000)
 	private String description;
 	LocalDateTime start_date;
 	LocalDateTime end_date;
@@ -30,17 +41,8 @@ public class Schedule {
 	@JsonIgnore
 	private Long n_votes_n = 0L;
 //Auth
-	private Long cpfProponent;
-	@Transient
-	private String password;
+	private String cpfProponent;
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getCategory() {
 		return category;
@@ -65,48 +67,6 @@ public class Schedule {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Schedule other = (Schedule) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		return true;
-	}
-
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
 	public Long getN_votes_p() {
 		return n_votes_p;
 	}
@@ -139,11 +99,46 @@ public class Schedule {
 		this.end_date = end_date;
 	}
 
-	public Long getCpfProponent() {
+	public String getCpfProponent() {
 		return cpfProponent;
 	}
 
-	public void setCpfProponent(Long cpfProponent) {
+	public void setCpfProponent(String cpfProponent) {
 		this.cpfProponent = cpfProponent;
 	}
+
+	public Long getIdschedule() {
+		return idschedule;
+	}
+
+	public void setIdschedule(Long idschedule) {
+		this.idschedule = idschedule;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((idschedule == null) ? 0 : idschedule.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Schedule other = (Schedule) obj;
+		if (idschedule == null) {
+			if (other.idschedule != null)
+				return false;
+		} else if (!idschedule.equals(other.idschedule))
+			return false;
+		return true;
+	}
+
+	
 }

@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.nt.votationt.forms.DeletionForm;
+import com.nt.votationt.forms.PersonFormUpdate;
 import com.nt.votationt.model.Person;
 import com.nt.votationt.service.PersonService;
 
@@ -28,21 +31,21 @@ public class PersonController {
 
 	@PostMapping
 	public Person create(@RequestBody Person person) {
-		return service.insertPerson(person,null);
+		return service.insertPerson(person,"insert");
 	}
 
 	@PutMapping
-	public Person update(@RequestBody Person person) {
-		return service.insertPerson(person,"update");
+	public void update(@RequestBody PersonFormUpdate form) {
+		 service.updatePerson(form);
 	}
 	
 	@GetMapping("/getbyCpf/{cpf}")
-	public Person getByCpf(@PathVariable Long cpf)  {
+	public Person getByCpf(@PathVariable String cpf)  {
 		return service.findPerson(cpf);
 	}
 
 	@GetMapping("/getbyName/{Name}")
-	public Person getById(@PathVariable String Name) {
+	public List<Person> getById(@PathVariable String Name) {
 		return service.findByFullNameIgnoreCase(Name);
 	}
 
@@ -57,13 +60,13 @@ public class PersonController {
 	}
 
 	@DeleteMapping("/deletebyid/{id}")
-	public void deleteById(@PathVariable Long id) {
-		service.deletePerson(id);
+	public void deleteById(@RequestBody DeletionForm form) {
+		service.deletePerson(form);
 	}
 
 	@PatchMapping
-	public Person patchUpdate(@RequestBody Person person) {
-		return service.insertPerson(person,"update");
+	public void patchUpdate(@RequestBody PersonFormUpdate form) {
+	service.updatePerson(form);
 	}
 }
 

@@ -8,10 +8,10 @@ import com.nt.votationt.model.Vote;
 
 public interface VoteRepository extends JpaRepository<Vote, Long> {
     @Query("FROM Vote WHERE id = ?1")
-	Vote FindByIdVote(Long id);
+	Vote FindById(Long id);
     
-	List<Vote> findByCpfPerson(Long cpfPerson);
+	List<Vote> findByCpfPerson(String cpfPerson);
 	
-	List<Vote> findByIdScheduleAndAprovation(Long idSchedule, boolean Aprovation);
+	List<Vote> findByIdscheduleAndAprovation(Long idSchedule, boolean Aprovation);
 
 }

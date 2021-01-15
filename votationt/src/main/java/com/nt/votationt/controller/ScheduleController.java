@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.nt.votationt.dto.ScheduleStatusDTO;
+import com.nt.votationt.forms.DeletionForm;
+import com.nt.votationt.forms.ScheduleFormInsert;
+import com.nt.votationt.forms.ScheduleFormUpdate;
 import com.nt.votationt.model.Schedule;
 import com.nt.votationt.service.ScheduleService;
 
@@ -28,13 +32,13 @@ public class ScheduleController {
 	}
 
 	@PostMapping
-	public Schedule create(@RequestBody Schedule schedule) {
-		return service.insertSchedule(schedule);
+	public Schedule create(@RequestBody ScheduleFormInsert form) {
+		return service.insertSchedule(form,null);
 	}
 
 	@PutMapping
-	public Schedule update(@RequestBody Schedule schedule) {
-		return service.insertSchedule(schedule);
+	public Schedule update(@RequestBody ScheduleFormUpdate form) {
+		return service.updateSchedule(form);
 	}
 
 	@GetMapping("/getbyId/{id}")
@@ -43,7 +47,7 @@ public class ScheduleController {
 	}
 
 	@GetMapping("/getbyName/{Name}")
-	public Schedule getById(@PathVariable String Name) {
+	public List <Schedule> getById(@PathVariable String Name) {
 		return service.findByNameIgnoreCase(Name);
 	}
 
@@ -53,7 +57,7 @@ public class ScheduleController {
 	}
 
 	@GetMapping("/getVotationState/{id_schedule}")
-	public String getVotationState(@PathVariable Long id_schedule) {
+	public ScheduleStatusDTO getVotationState(@PathVariable Long id_schedule) {
 		return service.checkScheduleState(id_schedule);
 	}
 
@@ -61,20 +65,14 @@ public class ScheduleController {
 	public List<Schedule> getAll() {
 		return service.getAllSchedule();
 	}
-
-	@GetMapping("getNumberOfVotes_Schedule/{id}/{aprovation}")
-	public String getNumberOfVotes_Schedule(@PathVariable Long id, boolean aprovation) {
-		return service.getNumberOfVotes_Schedule(id, aprovation);
-	}
-
 	@DeleteMapping("/deletebyid/{id}")
-	public void deleteById(@PathVariable Long id) {
-	 service.deleteSchedule(id);
+	public void deleteById(@RequestBody DeletionForm form,@PathVariable Long id) {
+	 service.deleteSchedule(form,id);
 	}
 
 	@PatchMapping
-	public Schedule patchUpdate(@RequestBody Schedule schedule) {
-		return service.insertSchedule(schedule);
+	public Schedule patchUpdate(@RequestBody ScheduleFormUpdate schedule) {
+		return service.updateSchedule(schedule);
 	}
 
 }

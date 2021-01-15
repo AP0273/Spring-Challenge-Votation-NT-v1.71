@@ -5,16 +5,21 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.nt.votationt.model.Person;
 
-public interface PersonRepository extends JpaRepository<Person, Long> {
+public interface PersonRepository extends JpaRepository<Person, String> {
 
 
-	Person findByCpf(long cpf);
+	Person findByCpf(String cpf);
 
-	Person findByFullNameIgnoreCase(String Name);
+	List <Person> findByFullnameIgnoreCase(String Name);
 
 
 	List<Person>findByCanVote(boolean can_vote);
 
 
-	Person findByCpfAndPassword(Long cpf, String password);
+	Person findByCpfAndPassword(String cpf, String password);
+	
+	Person findByPhone(String phone);
+	
+	Person findByEmail(String email);
+	
 }

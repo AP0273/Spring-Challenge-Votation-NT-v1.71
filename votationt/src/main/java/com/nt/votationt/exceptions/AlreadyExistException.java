@@ -11,8 +11,7 @@ public class AlreadyExistException extends RuntimeException {
 	 */
 	private static final long serialVersionUID = -2385649896282793681L;
 
-	public AlreadyExistException
-	(String message) {
+	public AlreadyExistException(String message) {
 		super(message);
 	}
 	

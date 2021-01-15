@@ -4,14 +4,14 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.nt.votationt.forms.DeletionForm;
+import com.nt.votationt.forms.VoteFormInsert;
 import com.nt.votationt.model.Vote;
 import com.nt.votationt.service.VoteService;
 
@@ -26,22 +26,17 @@ public class VoteController {
 	}
 
 	@PostMapping
-	public Vote create(@RequestBody Vote vote) {
-		return service.insertVote(vote);
-	}
-
-	@PutMapping
-	public Vote update(@RequestBody Vote vote) {
-		return service.insertVote(vote);
+	public Vote create(@RequestBody VoteFormInsert form) {
+		return service.insertVote(form);
 	}
 
 	@GetMapping("/getbyId/{id}")
 	public Vote getById(@PathVariable Long id) {
-		return service.FindVote(id);
+		return service.findVote(id);
 	}
 
 	@GetMapping("/getbyCpfPerson/{CpfPerson}")
-	public List<Vote> getByCpfPerson(@PathVariable Long CpfPerson) {
+	public List<Vote> getByCpfPerson(@PathVariable String CpfPerson) {
 		return service.findByCpfPerson(CpfPerson);
 	}
 
@@ -51,12 +46,9 @@ public class VoteController {
 	}
 
 	@DeleteMapping("/deletebyid/{id}")
-	public void deleteById(@PathVariable Long id) {
-		service.DeleteVote(id);
+	public void deleteById(@RequestBody DeletionForm form,@PathVariable Long id) {
+		service.deleteVote(form,id);
 	}
 
-	@PatchMapping
-	public Vote patchUpdate(@RequestBody Vote vote) {
-		return service.insertVote(vote);
-	}
+
 }

@@ -13,12 +13,12 @@ public class HerokuClient {
 	@Value("${heroku.url}")
 	private String herokuUrl;
 	
-	public HerokuAnswer getCpfState(Long Cpf) {
+	public HerokuAnswer getCpfState(String Cpf) {
 		System.out.println();
 		final RestTemplate template = new RestTemplateBuilder().setConnectTimeout(Duration.ofMillis(5000)).build();
 		HerokuAnswer result = new HerokuAnswer();		
 		try {
-			result = template.getForObject(herokuUrl + Long.toString(Cpf), HerokuAnswer.class);
+			result = template.getForObject(herokuUrl + Cpf, HerokuAnswer.class);
 		} catch (HttpClientErrorException.NotFound e) {
 			System.out.println("catch");
 			result.setStatus("INVALID_CPF");
