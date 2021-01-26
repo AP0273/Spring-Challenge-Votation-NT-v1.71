@@ -16,6 +16,9 @@ import com.nt.votationt.repository.PersonRepository;
 import com.nt.votationt.rest.HerokuAnswer;
 import com.nt.votationt.rest.HerokuClient;
 
+import de.mkammerer.argon2.Argon2;
+import de.mkammerer.argon2.Argon2Factory;
+
 @Service
 public class PersonService {
 
@@ -27,6 +30,8 @@ public class PersonService {
 
 	@Autowired
 	private Verify verify;
+	
+	Argon2 hashing = Argon2Factory.create();
 
 	public Person insertPerson(Person person, String type) {
 		if (verify.verifyPhone(person.getPhone()) == false)	throw new BadRequestException("Invalid Phone Number");
@@ -36,13 +41,14 @@ public class PersonService {
 		if (verify.verifyPassword(person.getPassword()) == false)throw new BadRequestException("Weak Password, should be at least 8-character long containing upper and lower case letters,numbers and symbols.");
 		if (type == "insert" && cpfIsValid(person) == false)throw new UnauthorizedException("Invalid CPF");
 		if (personAlreadyExist(person.getCpf()) == true && (type != "update") == true) throw new AlreadyExistException("Cpf Already Registred");
+		person.setPassword(hashing.hash(50, 50, 4, person.getPassword().toCharArray()));
 		return repository.save(person);
 	}
 
 	public void updatePerson(PersonFormUpdate form) {
 		Person person = repository.findByCpf(form.getCpf());
 		if (person == null)throw new ResourceNotFoundExeception("User Not Found Can't update");
-		if (!form.getNowpassword().equals(person.getPassword()))throw new UnauthorizedException("Unauthorized Wrong Password");
+		if (login(form.getCpf(), form.getNowpassword()) == false) throw new UnauthorizedException("Unauthorized Wrong Password");
 		insertPerson(new Person(form), "update");
 	}
 
@@ -121,10 +127,8 @@ public class PersonService {
 	}
 
 	public boolean login(String cpf, String password) {
-		Person pdb = repository.findByCpfAndPassword(cpf, password);
-		boolean result = false;
-		if (pdb != null)
-			result = true;
+		Person pdb = repository.findByCpf(cpf);
+		boolean result = hashing.verify(pdb.getPassword(), password.toCharArray());
 		return result;
 	}
 }
