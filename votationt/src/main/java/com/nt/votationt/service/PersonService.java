@@ -1,6 +1,9 @@
 package com.nt.votationt.service;
 
 import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +35,8 @@ public class PersonService {
 	private Verify verify;
 	
 	Argon2 hashing = Argon2Factory.create();
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(PersonService.class);
 
 	public Person insertPerson(Person person, String type) {
 		if (verify.verifyPhone(person.getPhone()) == false)	throw new BadRequestException("Invalid Phone Number");
@@ -42,6 +47,7 @@ public class PersonService {
 		if (type == "insert" && cpfIsValid(person) == false)throw new UnauthorizedException("Invalid CPF");
 		if (personAlreadyExist(person.getCpf()) == true && (type != "update") == true) throw new AlreadyExistException("Cpf Already Registred");
 		person.setPassword(hashing.hash(50, 50, 4, person.getPassword().toCharArray()));
+		LOGGER.info("(Person) "+ person.toString()  +" Inserted Successfully");
 		return repository.save(person);
 	}
 
@@ -49,7 +55,9 @@ public class PersonService {
 		Person person = repository.findByCpf(form.getCpf());
 		if (person == null)throw new ResourceNotFoundExeception("User Not Found Can't update");
 		if (login(form.getCpf(), form.getNowpassword()) == false) throw new UnauthorizedException("Unauthorized Wrong Password");
-		insertPerson(new Person(form), "update");
+		Person uperson = new Person(form);
+		LOGGER.info("(Person) "+ person.toString()  +" Updated to " + uperson.toString() );
+		insertPerson(uperson, "update");
 	}
 
 	public boolean personAlreadyExist(String cpf) {
@@ -86,6 +94,7 @@ public class PersonService {
 		if (personAlreadyExist(form.getCpf()) == false)	throw new ResourceNotFoundExeception("Cpf '" + form.getCpf() + "' not found.");
 		Person person = repository.findByCpf(form.getCpf());
 		if (login(form.getCpf(), form.getPassword()) == false) throw new UnauthorizedException("Unauthorized Wrong Password");
+		LOGGER.info("(Person) "+ person.toString()  +" Deleted Successfully");
 		repository.delete(person);
 	}
 
@@ -110,14 +119,12 @@ public class PersonService {
 
 	public boolean cpfIsValid(Person person) {
 		HerokuAnswer statusCpf = herokuclient.getCpfState(person.getCpf());
-		System.out.println("CPF: " + person.getCpf() + " --> " + statusCpf.getStatus());
+		LOGGER.info("(Person)(Heroku Response) CPF: " + person.getCpf()+ " --> " + statusCpf.getStatus());
 		boolean result;
 		if (statusCpf.getStatus().equals("ABLE_TO_VOTE")) {
-			System.out.println("a");
 			person.setCanVote(true);
 			result = true;
 		} else if (statusCpf.getStatus().equals("UNABLE_TO_VOTE")) {
-			System.out.println("u");
 			person.setCanVote(false);
 			result = true;
 		} else {

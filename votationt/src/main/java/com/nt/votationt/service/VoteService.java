@@ -2,6 +2,8 @@ package com.nt.votationt.service;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.nt.votationt.DateCheck.DateCheck;
@@ -31,10 +33,10 @@ public class VoteService {
 	private ScheduleService scheduleservice;
 	@Autowired
 	private DateCheck datecheck;
+	
+	private final static Logger LOGGER = LoggerFactory.getLogger(VoteService.class);
 
 	public Vote insertVote(VoteFormInsert form) {
-		System.out.println("idschedule" + form.getIdschedule());
-		System.out.println("Cpfperson" + form.getCpfPerson());
 		final Person pdb = personrepository.findByCpf(form.getCpfPerson());
 		final Schedule sdb = schedulerepository.findByIdschedule(form.getIdschedule());
 		if (scheduleservice.isScheduleExist(form.getIdschedule()) == false) throw new ResourceNotFoundExeception("Error Schedule Not Found");
@@ -44,10 +46,12 @@ public class VoteService {
 		if (scheduleservice.isAlreadyVoted(form) == true) throw new UnauthorizedException("Error, You Already Voted");
 		boolean voteap = form.isAprovation();
 		if (voteap == true) {
-			sdb.setN_votes_p(sdb.getN_votes_p() + 1);
+			sdb.setnVotesP(sdb.getnVotesP() + 1);
 		} else {
-			sdb.setN_votes_n(sdb.getN_votes_n() + 1);
+			sdb.setnVotesN(sdb.getnVotesN() + 1);
 		}
+		Vote vote = new Vote(form);
+		LOGGER.info("(Vote) "+ vote.toString()  +" Inserted Successfully");
 		return voterepository.save(new Vote(form));
 	}
 
@@ -72,6 +76,7 @@ public class VoteService {
 		if (datecheck.isOnGoing(schedule) == false) throw new UnauthorizedException("Error, is not possible delete a vote on a ended votation");
 
 		voterepository.delete(vote);
+		LOGGER.info("(Vote) "+ vote.toString()  +" Deleted Successfully");
 		schedulerepository.save(scheduleservice.updateDeletedVote(schedule, vote.isAprovation()));
 	}
 

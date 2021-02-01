@@ -13,9 +13,9 @@ public interface ScheduleRepository extends JpaRepository<Schedule, Long> {
 
 	Schedule findByCpfProponent(Long id);
 
-	List<Schedule> findByNameIgnoreCase(String Name);
+	List<Schedule> findByNameIgnoreCase(String name);
 
-	List<Schedule> findByCategoryIgnoreCase(String Category);
+	List<Schedule> findByCategoryIgnoreCase(String category);
 
 	@Query("FROM Vote WHERE idSchedule = ?1 AND aprovation = ?2")
 	List<Vote> findByIdscheduleAndAprovation(Long idSchedule, boolean aprovation);

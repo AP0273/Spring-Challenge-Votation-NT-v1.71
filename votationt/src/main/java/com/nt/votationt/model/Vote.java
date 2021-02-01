@@ -84,4 +84,10 @@ public class Vote {
 		this.idschedule = idSchedule;
 	}
 
+	@Override
+	public String toString() {
+		return "Vote [id=" + id + ", idschedule=" + idschedule + ", aprovation=" + aprovation + ", cpfPerson="
+				+ cpfPerson + "]";
+	}
+
 }

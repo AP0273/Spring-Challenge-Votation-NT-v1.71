@@ -4,70 +4,70 @@ import java.time.LocalDateTime;
 
 public class ScheduleStatusDTO {
 
-	LocalDateTime start_date;
-	LocalDateTime end_date;
-	String votation_status;
-	Long positive_votes;
-	Long negative_votes;
-	String approval_percent;
+	LocalDateTime startDate;
+	LocalDateTime endDate;
+	String votationStatus;
+	Long positiveVotes;
+	Long negativeVotes;
+	String approvalPercent;
 
-	public ScheduleStatusDTO(LocalDateTime start_date, LocalDateTime end_date, String votation_status,
-			Long positive_votes, Long negative_votes, String approval_percent) {
+	public ScheduleStatusDTO(LocalDateTime startDate, LocalDateTime endDate, String votationStatus,
+			Long positiveVotes, Long negativeVotes, String approvalPercent) {
 		super();
-		this.start_date = start_date;
-		this.end_date = end_date;
-		this.votation_status = votation_status;
-		this.positive_votes = positive_votes;
-		this.negative_votes = negative_votes;
-		this.approval_percent = approval_percent;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.votationStatus = votationStatus;
+		this.positiveVotes = positiveVotes;
+		this.negativeVotes = negativeVotes;
+		this.approvalPercent = approvalPercent;
 	}
 
-	public LocalDateTime getStart_date() {
-		return start_date;
+	public LocalDateTime getStartDate() {
+		return startDate;
 	}
 
-	public void setStart_date(LocalDateTime start_date) {
-		this.start_date = start_date;
+	public void setStartDate(LocalDateTime startDate) {
+		this.startDate = startDate;
 	}
 
-	public LocalDateTime getEnd_date() {
-		return end_date;
+	public LocalDateTime getEndDate() {
+		return endDate;
 	}
 
-	public void setEnd_date(LocalDateTime end_date) {
-		this.end_date = end_date;
+	public void setEndDate(LocalDateTime endDate) {
+		this.endDate = endDate;
 	}
 
-	public String getVotation_status() {
-		return votation_status;
+	public String getVotationStatus() {
+		return votationStatus;
 	}
 
-	public void setVotation_status(String votation_status) {
-		this.votation_status = votation_status;
+	public void setVotationStatus(String votationStatus) {
+		this.votationStatus = votationStatus;
 	}
 
-	public Long getPositive_votes() {
-		return positive_votes;
+	public Long getPositiveVotes() {
+		return positiveVotes;
 	}
 
-	public void setPositive_votes(Long positive_votes) {
-		this.positive_votes = positive_votes;
+	public void setPositiveVotes(Long positiveVotes) {
+		this.positiveVotes = positiveVotes;
 	}
 
-	public Long getNegative_votes() {
-		return negative_votes;
+	public Long getNegativeVotes() {
+		return negativeVotes;
 	}
 
-	public void setNegative_votes(Long negative_votes) {
-		this.negative_votes = negative_votes;
+	public void setNegativeVotes(Long negativeVotes) {
+		this.negativeVotes = negativeVotes;
 	}
 
-	public String getApproval_percent() {
-		return approval_percent;
+	public String getApprovalPercent() {
+		return approvalPercent;
 	}
 
-	public void setApproval_percent(String approval_percent) {
-		this.approval_percent = approval_percent;
+	public void setApprovalPercent(String approvalPercent) {
+		this.approvalPercent = approvalPercent;
 	}
 
 }

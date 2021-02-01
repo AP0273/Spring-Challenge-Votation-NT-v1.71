@@ -10,9 +10,9 @@ public class ScheduleFormInsert {
 	private String name;
 	private String description;
 	@JsonProperty(required = false)
-	private LocalDateTime start_date;
+	private LocalDateTime startDate;
 	@JsonProperty(required = false)
-	private LocalDateTime end_date;
+	private LocalDateTime endDate;
 	private String cpfProponent;
 	private String password;
 
@@ -24,8 +24,8 @@ public class ScheduleFormInsert {
 		this.category = formu.getCategory();
 		this.name = formu.getName();
 		this.description = formu.getDescription();
-		this.start_date = formu.getStart_date();
-		this.end_date = formu.getEnd_date();
+		this.startDate = formu.getStartDate();
+		this.endDate = formu.getEndDate();
 		this.cpfProponent = formu.getCpfProponent();
 		this.password = formu.getPassword();
 	}
@@ -54,22 +54,6 @@ public class ScheduleFormInsert {
 		this.description = description;
 	}
 
-	public LocalDateTime getStart_date() {
-		return start_date;
-	}
-
-	public void setStart_date(LocalDateTime start_date) {
-		this.start_date = start_date;
-	}
-
-	public LocalDateTime getEnd_date() {
-		return end_date;
-	}
-
-	public void setEnd_date(LocalDateTime end_date) {
-		this.end_date = end_date;
-	}
-
 	public String getCpfProponent() {
 		return cpfProponent;
 	}
@@ -84,5 +68,21 @@ public class ScheduleFormInsert {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public LocalDateTime getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(LocalDateTime startDate) {
+		this.startDate = startDate;
+	}
+
+	public LocalDateTime getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(LocalDateTime endDate) {
+		this.endDate = endDate;
 	}
 }

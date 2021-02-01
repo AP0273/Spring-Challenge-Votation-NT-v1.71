@@ -9,11 +9,9 @@ public interface PersonRepository extends JpaRepository<Person, String> {
 
 	Person findByCpf(String cpf);
 
-	List<Person> findByFullnameIgnoreCase(String Name);
+	List<Person> findByFullnameIgnoreCase(String name);
 
-	List<Person> findByCanVote(boolean can_vote);
-
-	Person findByCpfAndPassword(String cpf, String password);
+	List<Person> findByCanVote(boolean canVote);
 
 	Person findByPhone(String phone);
 

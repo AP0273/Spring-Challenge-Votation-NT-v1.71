@@ -46,19 +46,19 @@ public class ScheduleController {
 		return service.findSchedule(id);
 	}
 
-	@GetMapping("/getbyName/{Name}")
-	public List<Schedule> getById(@PathVariable String Name) {
-		return service.findByNameIgnoreCase(Name);
+	@GetMapping("/getbyName/{name}")
+	public List<Schedule> getById(@PathVariable String name) {
+		return service.findByNameIgnoreCase(name);
 	}
 
-	@GetMapping("/getbyCategory/{Category}")
-	public List<Schedule> getByCategory(@PathVariable String Category) {
-		return service.findByCategoryIgnoreCase(Category);
+	@GetMapping("/getbyCategory/{category}")
+	public List<Schedule> getByCategory(@PathVariable String category) {
+		return service.findByCategoryIgnoreCase(category);
 	}
 
-	@GetMapping("/getVotationState/{id_schedule}")
-	public ScheduleStatusDTO getVotationState(@PathVariable Long id_schedule) {
-		return service.checkScheduleState(id_schedule);
+	@GetMapping("/getVotationState/{idSchedule}")
+	public ScheduleStatusDTO getVotationState(@PathVariable Long idSchedule) {
+		return service.checkScheduleState(idSchedule);
 	}
 
 	@GetMapping
@@ -66,9 +66,9 @@ public class ScheduleController {
 		return service.getAllSchedule();
 	}
 
-	@DeleteMapping("/deletebyid/{id}")
-	public void deleteById(@RequestBody DeletionForm form, @PathVariable Long id) {
-		service.deleteSchedule(form, id);
+	@DeleteMapping("/deletebyid/{idSchedule}")
+	public void deleteById(@RequestBody DeletionForm form, @PathVariable Long idSchedule) {
+		service.deleteSchedule(form, idSchedule);
 	}
 
 	@PatchMapping

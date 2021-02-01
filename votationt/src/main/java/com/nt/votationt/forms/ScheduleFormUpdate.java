@@ -8,8 +8,8 @@ public class ScheduleFormUpdate {
 	private String category;
 	private String name;
 	private String description;
-	LocalDateTime start_date;
-	LocalDateTime end_date;
+	LocalDateTime startDate;
+	LocalDateTime endDate;
 	private String cpfProponent;
 	private String password;
 
@@ -45,22 +45,6 @@ public class ScheduleFormUpdate {
 		this.description = description;
 	}
 
-	public LocalDateTime getStart_date() {
-		return start_date;
-	}
-
-	public void setStart_date(LocalDateTime start_date) {
-		this.start_date = start_date;
-	}
-
-	public LocalDateTime getEnd_date() {
-		return end_date;
-	}
-
-	public void setEnd_date(LocalDateTime end_date) {
-		this.end_date = end_date;
-	}
-
 	public String getCpfProponent() {
 		return cpfProponent;
 	}
@@ -75,6 +59,22 @@ public class ScheduleFormUpdate {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public LocalDateTime getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(LocalDateTime startDate) {
+		this.startDate = startDate;
+	}
+
+	public LocalDateTime getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(LocalDateTime endDate) {
+		this.endDate = endDate;
 	}
 
 }

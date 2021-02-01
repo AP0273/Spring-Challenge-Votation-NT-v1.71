@@ -11,22 +11,22 @@ public class DateCheck {
 
 	public boolean isUnstarted(Schedule schedule) {
 		boolean result = false;
-		if (LocalDateTime.now().isBefore(schedule.getStart_date()))
+		if (LocalDateTime.now().isBefore(schedule.getStartDate()))
 			result = true;
 		return result;
 	}
 
 	public boolean isOnGoing(Schedule schedule) {
 		boolean result = false;
-		if (LocalDateTime.now().isAfter(schedule.getStart_date())
-				&& LocalDateTime.now().isBefore(schedule.getEnd_date()))
+		if (LocalDateTime.now().isAfter(schedule.getStartDate())
+				&& LocalDateTime.now().isBefore(schedule.getEndDate()))
 			result = true;
 		return result;
 	}
 
 	public boolean isEnded(Schedule schedule) {
 		boolean result = false;
-		if (LocalDateTime.now().isAfter(schedule.getEnd_date()))
+		if (LocalDateTime.now().isAfter(schedule.getEndDate()))
 			result = true;
 		return result;
 	}

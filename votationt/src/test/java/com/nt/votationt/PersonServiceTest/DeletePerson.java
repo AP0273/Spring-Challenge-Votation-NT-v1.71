@@ -44,10 +44,12 @@ public class DeletePerson {
 	public void deleteScheduleErrorWrongPassword() {
 		DeletionForm form = new DeletionForm();
 		form.setCpf("85239109052");
+		form.setPassword("WrongPassword+123");
+		Person personDb = new Person();
+		personDb.setPassword("RightPassword+123");
 		Schedule schedule = new Schedule();
 		schedule.setCpfProponent(form.getCpf());
-		Mockito.when(repository.findByCpf(form.getCpf())).thenReturn(new Person());
-		Mockito.when(repository.findByCpfAndPassword(form.getCpf(), form.getPassword())).thenReturn(null);
+		Mockito.when(repository.findByCpf(form.getCpf())).thenReturn(personDb);
 		var exception = assertThrows(UnauthorizedException.class, () -> {
 			service.deletePerson(form);
 		});

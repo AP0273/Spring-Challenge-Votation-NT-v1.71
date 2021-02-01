@@ -115,4 +115,10 @@ public class Person {
 		this.fullname = fullname;
 	}
 
+	@Override
+	public String toString() {
+		return "Person [cpf=" + cpf + ", password hash=" + password + ", fullname=" + fullname + ", phone=" + phone
+				+ ", adress=" + adress + ", email=" + email + ", birthday=" + birthday + ", canVote=" + canVote + "]";
+	}
+
 }

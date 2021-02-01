@@ -20,8 +20,8 @@ public class Schedule {
 		this.category = form.getCategory();
 		this.name = form.getName();
 		this.description = form.getDescription();
-		this.start_date = form.getStart_date();
-		this.end_date = form.getEnd_date();
+		this.startDate = form.getStartDate();
+		this.endDate = form.getEndDate();
 		this.cpfProponent = form.getCpfProponent();
 
 	}
@@ -35,12 +35,12 @@ public class Schedule {
 	private String name;
 	@Column(length = 1000)
 	private String description;
-	LocalDateTime start_date;
-	LocalDateTime end_date;
+	LocalDateTime startDate;
+	LocalDateTime endDate;
 	@JsonIgnore
-	private Long n_votes_p = 0L;
+	private Long nVotesP = 0L;
 	@JsonIgnore
-	private Long n_votes_n = 0L;
+	private Long nVotesN = 0L;
 //Auth
 	private String cpfProponent;
 
@@ -68,37 +68,6 @@ public class Schedule {
 		this.description = description;
 	}
 
-	public Long getN_votes_p() {
-		return n_votes_p;
-	}
-
-	public void setN_votes_p(Long n_votes_p) {
-		this.n_votes_p = n_votes_p;
-	}
-
-	public Long getN_votes_n() {
-		return n_votes_n;
-	}
-
-	public void setN_votes_n(Long n_votes_n) {
-		this.n_votes_n = n_votes_n;
-	}
-
-	public LocalDateTime getStart_date() {
-		return start_date;
-	}
-
-	public void setStart_date(LocalDateTime start_date) {
-		this.start_date = start_date;
-	}
-
-	public LocalDateTime getEnd_date() {
-		return end_date;
-	}
-
-	public void setEnd_date(LocalDateTime end_date) {
-		this.end_date = end_date;
-	}
 
 	public String getCpfProponent() {
 		return cpfProponent;
@@ -139,6 +108,45 @@ public class Schedule {
 		} else if (!idschedule.equals(other.idschedule))
 			return false;
 		return true;
+	}
+
+	public LocalDateTime getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(LocalDateTime startDate) {
+		this.startDate = startDate;
+	}
+
+	public LocalDateTime getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(LocalDateTime endDate) {
+		this.endDate = endDate;
+	}
+
+	public Long getnVotesP() {
+		return nVotesP;
+	}
+
+	public void setnVotesP(Long nVotesP) {
+		this.nVotesP = nVotesP;
+	}
+
+	public Long getnVotesN() {
+		return nVotesN;
+	}
+
+	public void setnVotesN(Long nVotesN) {
+		this.nVotesN = nVotesN;
+	}
+
+	@Override
+	public String toString() {
+		return "Schedule [idschedule=" + idschedule + ", category=" + category + ", name=" + name + ", description="
+				+ description + ", startDate=" + startDate + ", endDate=" + endDate + ", nVotesP=" + nVotesP
+				+ ", nVotesN=" + nVotesN + ", cpfProponent=" + cpfProponent + "]";
 	}
 
 }

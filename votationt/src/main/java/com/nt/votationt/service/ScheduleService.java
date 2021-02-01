@@ -3,6 +3,8 @@ package com.nt.votationt.service;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.nt.votationt.DateCheck.DateCheck;
@@ -26,24 +28,29 @@ public class ScheduleService {
 	private PersonService personservice;
 	@Autowired
 	private DateCheck datecheck;
+	
+	private final static Logger LOGGER = LoggerFactory.getLogger(ScheduleService.class);
 
 	public Schedule insertSchedule(ScheduleFormInsert form, Long id) {
 		if (personservice.login(form.getCpfProponent(), form.getPassword()) == false) throw new UnauthorizedException("CPF or Password are Wrong or Unregistred");
 		Schedule schedule = new Schedule(form);
 		if (id != null) {
 			schedule.setIdschedule(id);
-			;
 		}
-		if (form.getEnd_date() == null || form.getStart_date() == null) {
-			schedule.setStart_date(LocalDateTime.now());
-			schedule.setEnd_date(LocalDateTime.now().plusMinutes(1L));
+		if (form.getEndDate() == null || form.getStartDate() == null) {
+			schedule.setStartDate(LocalDateTime.now());
+			schedule.setEndDate(LocalDateTime.now().plusMinutes(1L));
 		}
+		LOGGER.info("(Schedule) "+ schedule.toString()  +" Inserted Successfully");
 		return schedulerepository.save(schedule);
 	}
 
 	public Schedule updateSchedule(ScheduleFormUpdate form) {
+		Schedule scheduleDb = schedulerepository.findByIdschedule(form.getIdschedule());
 		if (isScheduleExist(form.getIdschedule()) == false) throw new ResourceNotFoundExeception("Schedule not Found");
 		if (isAuthor(form) == false) throw new UnauthorizedException("Error only the author is authorized to modify");
+		Schedule uSchedule = new Schedule(new ScheduleFormInsert(form)); 
+		LOGGER.info("(Schedule) "+ scheduleDb.toString()  +" Updated to " + uSchedule.toString() );
 		return insertSchedule(new ScheduleFormInsert(form), form.getIdschedule());
 	}
 
@@ -51,7 +58,6 @@ public class ScheduleService {
 		Schedule schedule = schedulerepository.findByIdschedule(form.getIdschedule());
 		boolean result = false;
 		if (schedule.getCpfProponent().equals(form.getCpfProponent())) {
-			System.err.println("In");
 			result = true;
 		}
 		return result;
@@ -63,31 +69,32 @@ public class ScheduleService {
 		return schedule;
 	}
 
-	public List<Schedule> findByNameIgnoreCase(String Name) {
-		List<Schedule> schedulelist = schedulerepository.findByNameIgnoreCase(Name);
-		if (schedulelist.isEmpty())	throw new ResourceNotFoundExeception("None results found for the name " + Name);
+	public List<Schedule> findByNameIgnoreCase(String name) {
+		List<Schedule> schedulelist = schedulerepository.findByNameIgnoreCase(name);
+		if (schedulelist.isEmpty())	throw new ResourceNotFoundExeception("None results found for the name " + name);
 		return schedulelist;
 	}
 
-	public List<Schedule> findByCategoryIgnoreCase(String Category) {
-		List<Schedule> schedulelist = schedulerepository.findByCategoryIgnoreCase(Category);
-		if (schedulelist.isEmpty()) throw new ResourceNotFoundExeception("None results found for the category " + Category);
+	public List<Schedule> findByCategoryIgnoreCase(String category) {
+		List<Schedule> schedulelist = schedulerepository.findByCategoryIgnoreCase(category);
+		if (schedulelist.isEmpty()) throw new ResourceNotFoundExeception("None results found for the category " + category);
 		return schedulelist;
 	}
 
-	public void deleteSchedule(DeletionForm form, Long id_schedule) {
-		if (isScheduleExist(id_schedule) == false) throw new ResourceNotFoundExeception("Schedule Not Found");
-		Schedule schedule = schedulerepository.findByIdschedule(id_schedule);
+	public void deleteSchedule(DeletionForm form, Long idSchedule) {
+		if (isScheduleExist(idSchedule) == false) throw new ResourceNotFoundExeception("Schedule Not Found");
+		Schedule schedule = schedulerepository.findByIdschedule(idSchedule);
 		if (!schedule.getCpfProponent().equals(form.getCpf())) throw new UnauthorizedException("Unauthorized, Only the Author can delete the schedule");
 		if (personservice.login(form.getCpf(), form.getPassword()) == false) throw new UnauthorizedException("Unauthorized Wrong Password");
+		LOGGER.info("(Schedule) "+ schedule.toString()  +" Deleted Successfully");
 		schedulerepository.delete(schedule);
 	}
 
 	public Schedule updateDeletedVote(Schedule schedule, boolean vote) {
 		if (vote = true) {
-			schedule.setN_votes_p(schedule.getN_votes_p() - 1);
+			schedule.setnVotesP(schedule.getnVotesP() - 1);
 		} else {
-			schedule.setN_votes_n(schedule.getN_votes_n() - 1);
+			schedule.setnVotesN(schedule.getnVotesN() - 1);
 		}
 		return schedule;
 	}
@@ -116,12 +123,12 @@ public class ScheduleService {
 
 	// The percent calculation is better to do from the front-end to save resources
 	// from the server, i just did it here to test
-	public ScheduleStatusDTO checkScheduleState(Long id_schedule) {
-		if (isScheduleExist(id_schedule) == false) throw new ResourceNotFoundExeception("Schedule Not Found");
-		Schedule sdb = schedulerepository.findByIdschedule(id_schedule);
+	public ScheduleStatusDTO checkScheduleState(Long idSchedule) {
+		if (isScheduleExist(idSchedule) == false) throw new ResourceNotFoundExeception("Schedule Not Found");
+		Schedule sdb = schedulerepository.findByIdschedule(idSchedule);
 		String state = datecheck.checkStatus(sdb);
-		Long vp = sdb.getN_votes_p();
-		Long vn = sdb.getN_votes_n();
+		Long vp = sdb.getnVotesP();
+		Long vn = sdb.getnVotesN();
 		String percent;
 		try {
 			percent = Double.toString((100 * vp) / (vp + vn)) + "%";
@@ -129,7 +136,7 @@ public class ScheduleService {
 			percent = "0%";
 		}
 
-		final ScheduleStatusDTO statusdto = new ScheduleStatusDTO(sdb.getStart_date(), sdb.getEnd_date(), state, vp, vn,
+		final ScheduleStatusDTO statusdto = new ScheduleStatusDTO(sdb.getStartDate(), sdb.getEndDate(), state, vp, vn,
 				percent);
 		return statusdto;
 	}
