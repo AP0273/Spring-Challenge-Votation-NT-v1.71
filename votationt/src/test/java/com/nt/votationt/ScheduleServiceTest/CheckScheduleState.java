@@ -37,12 +37,12 @@ public class CheckScheduleState {
 	public void checkScheduleStatePass() {
 		Long scheduleid = 1L;
 		Schedule schedule = new Schedule();
-		schedule.setnVotesN(3L);
-		schedule.setnVotesP(5L);
+		schedule.setNVotesN(3L);
+		schedule.setNVotesP(5L);
 		schedule.setStartDate(LocalDateTime.of(2020, 11, 12, 10, 05));
 		schedule.setEndDate(LocalDateTime.of(2021, 11, 12, 10, 05));
-		Long vp = schedule.getnVotesP();
-		Long vn = schedule.getnVotesN();
+		Long vp = schedule.getNVotesP();
+		Long vn = schedule.getNVotesN();
 		Mockito.when(repository.findByIdschedule(scheduleid)).thenReturn(schedule);
 		Mockito.when(datecheck.checkStatus(schedule)).thenReturn("Ongoing");
 		String percent = Double.toString((100 * vp) / (vp + vn)) + "%";

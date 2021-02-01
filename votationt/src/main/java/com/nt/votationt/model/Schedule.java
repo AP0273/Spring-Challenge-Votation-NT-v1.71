@@ -126,19 +126,19 @@ public class Schedule {
 		this.endDate = endDate;
 	}
 
-	public Long getnVotesP() {
+	public Long getNVotesP() {
 		return nVotesP;
 	}
 
-	public void setnVotesP(Long nVotesP) {
+	public void setNVotesP(Long nVotesP) {
 		this.nVotesP = nVotesP;
 	}
 
-	public Long getnVotesN() {
+	public Long getNVotesN() {
 		return nVotesN;
 	}
 
-	public void setnVotesN(Long nVotesN) {
+	public void setNVotesN(Long nVotesN) {
 		this.nVotesN = nVotesN;
 	}
 

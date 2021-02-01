@@ -49,7 +49,9 @@ public class DeleteSchedule {
 		Long id = 1L;
 		DeletionForm form = new DeletionForm();
 		form.setCpf("85239109052");
-		Mockito.when(repository.findByIdschedule(id)).thenReturn(new Schedule());
+		Schedule schedule = new Schedule();
+		schedule.setCpfProponent("025939109053");
+		Mockito.when(repository.findByIdschedule(id)).thenReturn(schedule);
 		var exception = assertThrows(UnauthorizedException.class, () -> {
 			service.deleteSchedule(form, id);
 		});

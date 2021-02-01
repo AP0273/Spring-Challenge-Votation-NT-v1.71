@@ -1,0 +1,561 @@
+2021-02-01 14:29:05.655  INFO 11108 --- [main] com.nt.votationt.VotationtApplication    : Starting VotationtApplication on DESKTOP-PA767EV with PID 11108 (C:\Users\Anthony\Desktop\Nt\Git\VotatioNT-v1\votationt\target\classes started by Anthony in C:\Users\Anthony\Desktop\Nt\Git\VotatioNT-v1\votationt)
+2021-02-01 14:29:05.661  INFO 11108 --- [main] com.nt.votationt.VotationtApplication    : No active profile set, falling back to default profiles: default
+2021-02-01 14:29:06.372  INFO 11108 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2021-02-01 14:29:06.430  INFO 11108 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51ms. Found 3 JPA repository interfaces.
+2021-02-01 14:29:06.811  INFO 11108 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-02-01 14:29:06.818  INFO 11108 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-02-01 14:29:06.818  INFO 11108 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-02-01 14:29:06.902  INFO 11108 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-02-01 14:29:06.902  INFO 11108 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1206 ms
+2021-02-01 14:29:06.938  INFO 11108 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-02-01 14:29:07.075  INFO 11108 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-02-01 14:29:07.080  INFO 11108 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2'. Database available at 'jdbc:h2:file:./votationt.db'
+2021-02-01 14:29:07.178  INFO 11108 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01 14:29:07.211  INFO 11108 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-02-01 14:29:07.247  INFO 11108 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.22.Final
+2021-02-01 14:29:07.337  INFO 11108 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2021-02-01 14:29:07.356 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration boolean -> org.hibernate.type.BooleanType@25ae935c
+2021-02-01 14:29:07.357 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration boolean -> org.hibernate.type.BooleanType@25ae935c
+2021-02-01 14:29:07.357 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Boolean -> org.hibernate.type.BooleanType@25ae935c
+2021-02-01 14:29:07.357 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration numeric_boolean -> org.hibernate.type.NumericBooleanType@697c6167
+2021-02-01 14:29:07.358 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration true_false -> org.hibernate.type.TrueFalseType@860157c
+2021-02-01 14:29:07.358 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration yes_no -> org.hibernate.type.YesNoType@2449c923
+2021-02-01 14:29:07.359 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte -> org.hibernate.type.ByteType@753b7fb
+2021-02-01 14:29:07.359 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte -> org.hibernate.type.ByteType@753b7fb
+2021-02-01 14:29:07.359 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Byte -> org.hibernate.type.ByteType@753b7fb
+2021-02-01 14:29:07.360 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration character -> org.hibernate.type.CharacterType@563dc94e
+2021-02-01 14:29:07.360 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration char -> org.hibernate.type.CharacterType@563dc94e
+2021-02-01 14:29:07.360 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Character -> org.hibernate.type.CharacterType@563dc94e
+2021-02-01 14:29:07.361 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration short -> org.hibernate.type.ShortType@22a045d8
+2021-02-01 14:29:07.361 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration short -> org.hibernate.type.ShortType@22a045d8
+2021-02-01 14:29:07.361 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Short -> org.hibernate.type.ShortType@22a045d8
+2021-02-01 14:29:07.362 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration integer -> org.hibernate.type.IntegerType@742126a5
+2021-02-01 14:29:07.362 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration int -> org.hibernate.type.IntegerType@742126a5
+2021-02-01 14:29:07.362 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Integer -> org.hibernate.type.IntegerType@742126a5
+2021-02-01 14:29:07.363 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration long -> org.hibernate.type.LongType@311a3681
+2021-02-01 14:29:07.363 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration long -> org.hibernate.type.LongType@311a3681
+2021-02-01 14:29:07.363 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Long -> org.hibernate.type.LongType@311a3681
+2021-02-01 14:29:07.364 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration float -> org.hibernate.type.FloatType@616d2936
+2021-02-01 14:29:07.364 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration float -> org.hibernate.type.FloatType@616d2936
+2021-02-01 14:29:07.364 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Float -> org.hibernate.type.FloatType@616d2936
+2021-02-01 14:29:07.365 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration double -> org.hibernate.type.DoubleType@3967e9be
+2021-02-01 14:29:07.366 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration double -> org.hibernate.type.DoubleType@3967e9be
+2021-02-01 14:29:07.366 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Double -> org.hibernate.type.DoubleType@3967e9be
+2021-02-01 14:29:07.367 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration big_decimal -> org.hibernate.type.BigDecimalType@26553d30
+2021-02-01 14:29:07.367 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.math.BigDecimal -> org.hibernate.type.BigDecimalType@26553d30
+2021-02-01 14:29:07.368 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration big_integer -> org.hibernate.type.BigIntegerType@73e15fe5
+2021-02-01 14:29:07.368 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.math.BigInteger -> org.hibernate.type.BigIntegerType@73e15fe5
+2021-02-01 14:29:07.369 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration string -> org.hibernate.type.StringType@28d6c145
+2021-02-01 14:29:07.369 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.String -> org.hibernate.type.StringType@28d6c145
+2021-02-01 14:29:07.369 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration nstring -> org.hibernate.type.StringNVarcharType@4ccc18fe
+2021-02-01 14:29:07.370 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration ncharacter -> org.hibernate.type.CharacterNCharType@7ca5e556
+2021-02-01 14:29:07.370 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration url -> org.hibernate.type.UrlType@663f8ee0
+2021-02-01 14:29:07.371 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.net.URL -> org.hibernate.type.UrlType@663f8ee0
+2021-02-01 14:29:07.371 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration Duration -> org.hibernate.type.DurationType@2bc7f38
+2021-02-01 14:29:07.371 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.Duration -> org.hibernate.type.DurationType@2bc7f38
+2021-02-01 14:29:07.372 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration Instant -> org.hibernate.type.InstantType@517d3446
+2021-02-01 14:29:07.372 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.Instant -> org.hibernate.type.InstantType@517d3446
+2021-02-01 14:29:07.373 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalDateTime -> org.hibernate.type.LocalDateTimeType@343f42d2
+2021-02-01 14:29:07.373 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalDateTime -> org.hibernate.type.LocalDateTimeType@343f42d2
+2021-02-01 14:29:07.374 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalDate -> org.hibernate.type.LocalDateType@78c67de5
+2021-02-01 14:29:07.374 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalDate -> org.hibernate.type.LocalDateType@78c67de5
+2021-02-01 14:29:07.374 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalTime -> org.hibernate.type.LocalTimeType@2cafdc1a
+2021-02-01 14:29:07.374 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalTime -> org.hibernate.type.LocalTimeType@2cafdc1a
+2021-02-01 14:29:07.375 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@dc0af55
+2021-02-01 14:29:07.375 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@dc0af55
+2021-02-01 14:29:07.376 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetTime -> org.hibernate.type.OffsetTimeType@4400ef37
+2021-02-01 14:29:07.376 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.OffsetTime -> org.hibernate.type.OffsetTimeType@4400ef37
+2021-02-01 14:29:07.377 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@b67de6c
+2021-02-01 14:29:07.377 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@b67de6c
+2021-02-01 14:29:07.378 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration date -> org.hibernate.type.DateType@5d965ddd
+2021-02-01 14:29:07.378 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Date -> org.hibernate.type.DateType@5d965ddd
+2021-02-01 14:29:07.379 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration time -> org.hibernate.type.TimeType@beb28f6
+2021-02-01 14:29:07.379 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Time -> org.hibernate.type.TimeType@beb28f6
+2021-02-01 14:29:07.380 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration timestamp -> org.hibernate.type.TimestampType@466fdcc1
+2021-02-01 14:29:07.380 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Timestamp -> org.hibernate.type.TimestampType@466fdcc1
+2021-02-01 14:29:07.380 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Date -> org.hibernate.type.TimestampType@466fdcc1
+2021-02-01 14:29:07.381 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration dbtimestamp -> org.hibernate.type.DbTimestampType@381c64ed
+2021-02-01 14:29:07.382 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration calendar -> org.hibernate.type.CalendarType@3340ffa9
+2021-02-01 14:29:07.382 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Calendar -> org.hibernate.type.CalendarType@3340ffa9
+2021-02-01 14:29:07.382 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.GregorianCalendar -> org.hibernate.type.CalendarType@3340ffa9
+2021-02-01 14:29:07.383 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration calendar_date -> org.hibernate.type.CalendarDateType@5269a123
+2021-02-01 14:29:07.383 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration calendar_time -> org.hibernate.type.CalendarTimeType@1083d0f5
+2021-02-01 14:29:07.384 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration locale -> org.hibernate.type.LocaleType@3a32551e
+2021-02-01 14:29:07.384 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Locale -> org.hibernate.type.LocaleType@3a32551e
+2021-02-01 14:29:07.385 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration currency -> org.hibernate.type.CurrencyType@3eb570c2
+2021-02-01 14:29:07.385 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Currency -> org.hibernate.type.CurrencyType@3eb570c2
+2021-02-01 14:29:07.385 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration timezone -> org.hibernate.type.TimeZoneType@1895e99e
+2021-02-01 14:29:07.385 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.TimeZone -> org.hibernate.type.TimeZoneType@1895e99e
+2021-02-01 14:29:07.386 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration class -> org.hibernate.type.ClassType@4e11bf1b
+2021-02-01 14:29:07.386 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Class -> org.hibernate.type.ClassType@4e11bf1b
+2021-02-01 14:29:07.386 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration uuid-binary -> org.hibernate.type.UUIDBinaryType@5cb269ec
+2021-02-01 14:29:07.386 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.UUID -> org.hibernate.type.UUIDBinaryType@5cb269ec
+2021-02-01 14:29:07.387 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration uuid-char -> org.hibernate.type.UUIDCharType@45eea839
+2021-02-01 14:29:07.387 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration binary -> org.hibernate.type.BinaryType@4ec6a8bc
+2021-02-01 14:29:07.388 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte[] -> org.hibernate.type.BinaryType@4ec6a8bc
+2021-02-01 14:29:07.388 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration [B -> org.hibernate.type.BinaryType@4ec6a8bc
+2021-02-01 14:29:07.388 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration wrapper-binary -> org.hibernate.type.WrapperBinaryType@6afc008b
+2021-02-01 14:29:07.389 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration Byte[] -> org.hibernate.type.WrapperBinaryType@6afc008b
+2021-02-01 14:29:07.389 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration [Ljava.lang.Byte; -> org.hibernate.type.WrapperBinaryType@6afc008b
+2021-02-01 14:29:07.389 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration row_version -> org.hibernate.type.RowVersionType@1d963188
+2021-02-01 14:29:07.390 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration image -> org.hibernate.type.ImageType@e4293b1
+2021-02-01 14:29:07.391 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration characters -> org.hibernate.type.CharArrayType@4c782bd4
+2021-02-01 14:29:07.391 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration char[] -> org.hibernate.type.CharArrayType@4c782bd4
+2021-02-01 14:29:07.391 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration [C -> org.hibernate.type.CharArrayType@4c782bd4
+2021-02-01 14:29:07.392 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration wrapper-characters -> org.hibernate.type.CharacterArrayType@2cc30c75
+2021-02-01 14:29:07.392 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration [Ljava.lang.Character; -> org.hibernate.type.CharacterArrayType@2cc30c75
+2021-02-01 14:29:07.392 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration Character[] -> org.hibernate.type.CharacterArrayType@2cc30c75
+2021-02-01 14:29:07.392 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration text -> org.hibernate.type.TextType@4647709a
+2021-02-01 14:29:07.393 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration ntext -> org.hibernate.type.NTextType@894f292
+2021-02-01 14:29:07.393 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration blob -> org.hibernate.type.BlobType@2563973f
+2021-02-01 14:29:07.393 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Blob -> org.hibernate.type.BlobType@2563973f
+2021-02-01 14:29:07.394 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_blob -> org.hibernate.type.MaterializedBlobType@2b84bf68
+2021-02-01 14:29:07.395 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration clob -> org.hibernate.type.ClobType@11ca7617
+2021-02-01 14:29:07.395 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Clob -> org.hibernate.type.ClobType@11ca7617
+2021-02-01 14:29:07.395 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration nclob -> org.hibernate.type.NClobType@41541fcb
+2021-02-01 14:29:07.396 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.NClob -> org.hibernate.type.NClobType@41541fcb
+2021-02-01 14:29:07.396 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_clob -> org.hibernate.type.MaterializedClobType@453777e4
+2021-02-01 14:29:07.396 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_nclob -> org.hibernate.type.MaterializedNClobType@15f89b34
+2021-02-01 14:29:07.397 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration serializable -> org.hibernate.type.SerializableType@2953a86f
+2021-02-01 14:29:07.399 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration object -> org.hibernate.type.ObjectType@490e923e
+2021-02-01 14:29:07.399 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Object -> org.hibernate.type.ObjectType@490e923e
+2021-02-01 14:29:07.400 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_date -> org.hibernate.type.AdaptedImmutableType@264474d0
+2021-02-01 14:29:07.400 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_time -> org.hibernate.type.AdaptedImmutableType@4a583e
+2021-02-01 14:29:07.400 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_timestamp -> org.hibernate.type.AdaptedImmutableType@24622335
+2021-02-01 14:29:07.400 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_dbtimestamp -> org.hibernate.type.AdaptedImmutableType@bfc9c43
+2021-02-01 14:29:07.400 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_calendar -> org.hibernate.type.AdaptedImmutableType@e1b8b18
+2021-02-01 14:29:07.400 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_calendar_date -> org.hibernate.type.AdaptedImmutableType@5cc2a94d
+2021-02-01 14:29:07.400 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_binary -> org.hibernate.type.AdaptedImmutableType@698c526b
+2021-02-01 14:29:07.401 DEBUG 11108 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_serializable -> org.hibernate.type.AdaptedImmutableType@67dc59d
+2021-02-01 14:29:07.403  WARN 11108 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-02-01 14:29:07.431  INFO 11108 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-02-01 14:29:07.484 DEBUG 11108 --- [task-1] o.h.type.spi.TypeConfiguration$Scope     : Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@41d299dd] to MetadataBuildingContext [org.hibernate.boot.internal.MetadataBuildingContextRootImpl@3fd3e99f]
+2021-02-01 14:29:07.508  INFO 11108 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-02-01 14:29:07.629 DEBUG 11108 --- [task-1] o.h.type.spi.TypeConfiguration$Scope     : Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@41d299dd] to SessionFactoryImpl [org.hibernate.internal.SessionFactoryImpl@431d6ca3]
+2021-02-01 14:29:07.744  INFO 11108 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-02-01 14:29:07.745  INFO 11108 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-02-01 14:29:07.762  INFO 11108 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-02-01 14:29:07.792  INFO 11108 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-02-01 14:29:07.885  INFO 11108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getByCpfUsingGET_1
+2021-02-01 14:29:07.912  INFO 11108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_1
+2021-02-01 14:29:07.914  INFO 11108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteByIdUsingDELETE_1
+2021-02-01 14:29:07.916  INFO 11108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllUsingGET_1
+2021-02-01 14:29:07.919  INFO 11108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getByIdUsingGET_1
+2021-02-01 14:29:07.920  INFO 11108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getByIdUsingGET_2
+2021-02-01 14:29:07.921  INFO 11108 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-02-01 14:29:07.926  INFO 11108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: patchUpdateUsingPATCH_1
+2021-02-01 14:29:07.927 TRACE 11108 --- [task-1] o.h.type.spi.TypeConfiguration$Scope     : Handling #sessionFactoryCreated from [org.hibernate.internal.SessionFactoryImpl@431d6ca3] for TypeConfiguration
+2021-02-01 14:29:07.928  INFO 11108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_1
+2021-02-01 14:29:07.928  INFO 11108 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-02-01 14:29:07.932  INFO 11108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_2
+2021-02-01 14:29:07.934  INFO 11108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteByIdUsingDELETE_2
+2021-02-01 14:29:07.936  INFO 11108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllUsingGET_2
+2021-02-01 14:29:07.938  INFO 11108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getByIdUsingGET_3
+2021-02-01 14:29:07.946  INFO 11108 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2021-02-01 14:29:08.027 DEBUG 11108 --- [main] o.h.stat.internal.StatisticsInitiator    : Statistics initialized [enabled=false]
+2021-02-01 14:29:08.260  INFO 11108 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2021-02-01 14:29:08.268  INFO 11108 --- [main] com.nt.votationt.VotationtApplication    : Started VotationtApplication in 2.871 seconds (JVM running for 3.473)
+2021-02-01 14:29:38.630  INFO 11108 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-02-01 14:29:38.630  INFO 11108 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-02-01 14:29:38.636  INFO 11108 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2021-02-01 14:29:38.718 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [+5540028922]
+2021-02-01 14:29:38.725 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [test@domain.com]
+2021-02-01 14:29:40.330  INFO 11108 --- [http-nio-8080-exec-1] com.nt.votationt.service.PersonService   : (Person)(Heroku Response) CPF: 38098299007 --> ABLE_TO_VOTE
+2021-02-01 14:29:40.332 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [38098299007]
+2021-02-01 14:29:40.411  INFO 11108 --- [http-nio-8080-exec-1] com.nt.votationt.service.PersonService   : (Person)(Insert) Person [cpf=38098299007, password hash=$argon2i$v=19$m=50,t=50,p=4$pJt2Y9DG8qHYznVk2Nqx0Q$d62v6/j9Pbqtg6tLghSJXSYGZ+zy7cgN4R5XMOpZ3e8, fullname=Some Random Name, phone=+5540028922, adress=Test Road, 0, email=test@domain.com, birthday=1999-01-13, canVote=true] Inserted Successfully
+2021-02-01 14:29:40.428 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [38098299007]
+2021-02-01 14:29:40.445 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [Test Road, 0]
+2021-02-01 14:29:40.445 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [DATE] - [1999-01-13]
+2021-02-01 14:29:40.446 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [true]
+2021-02-01 14:29:40.446 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [test@domain.com]
+2021-02-01 14:29:40.446 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [Some Random Name]
+2021-02-01 14:29:40.446 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [$argon2i$v=19$m=50,t=50,p=4$pJt2Y9DG8qHYznVk2Nqx0Q$d62v6/j9Pbqtg6tLghSJXSYGZ+zy7cgN4R5XMOpZ3e8]
+2021-02-01 14:29:40.447 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [+5540028922]
+2021-02-01 14:29:40.447 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [38098299007]
+2021-02-01 14:31:54.278 TRACE 11108 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [38098299007]
+2021-02-01 14:31:54.280 TRACE 11108 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([cpf1_0_] : [VARCHAR]) - [38098299007]
+2021-02-01 14:31:54.281 TRACE 11108 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([adress2_0_] : [VARCHAR]) - [Test Road, 0]
+2021-02-01 14:31:54.282 TRACE 11108 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([birthday3_0_] : [DATE]) - [1999-01-13]
+2021-02-01 14:31:54.282 TRACE 11108 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([can_vote4_0_] : [BOOLEAN]) - [true]
+2021-02-01 14:31:54.282 TRACE 11108 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([email5_0_] : [VARCHAR]) - [test@domain.com]
+2021-02-01 14:31:54.282 TRACE 11108 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([fullname6_0_] : [VARCHAR]) - [Some Random Name]
+2021-02-01 14:31:54.282 TRACE 11108 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([password7_0_] : [VARCHAR]) - [$argon2i$v=19$m=50,t=50,p=4$pJt2Y9DG8qHYznVk2Nqx0Q$d62v6/j9Pbqtg6tLghSJXSYGZ+zy7cgN4R5XMOpZ3e8]
+2021-02-01 14:31:54.283 TRACE 11108 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([phone8_0_] : [VARCHAR]) - [+5540028922]
+2021-02-01 14:31:54.342 TRACE 11108 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [string]
+2021-02-01 14:31:54.343 TRACE 11108 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [38098299007]
+2021-02-01 14:31:54.343 TRACE 11108 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [string]
+2021-02-01 14:31:54.343 TRACE 11108 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [TIMESTAMP] - [2020-02-01T16:43:07.702]
+2021-02-01 14:31:54.344 TRACE 11108 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [0]
+2021-02-01 14:31:54.344 TRACE 11108 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [0]
+2021-02-01 14:31:54.344 TRACE 11108 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [strin123123123g]
+2021-02-01 14:31:54.345 TRACE 11108 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [TIMESTAMP] - [2022-02-01T16:43:07.702]
+2021-02-01 14:31:54.345 TRACE 11108 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [BIGINT] - [1]
+2021-02-01 14:31:54.345  INFO 11108 --- [http-nio-8080-exec-4] c.nt.votationt.service.ScheduleService   : (Schedule)(Insert) Schedule [idschedule=1, category=string, name=strin123123123g, description=string, startDate=2022-02-01T16:43:07.702, endDate=2020-02-01T16:43:07.702, nVotesP=0, nVotesN=0, cpfProponent=38098299007] Inserted Successfully
+2021-02-01 14:32:13.928 TRACE 11108 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [38098299007]
+2021-02-01 14:32:13.929 TRACE 11108 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([cpf1_0_] : [VARCHAR]) - [38098299007]
+2021-02-01 14:32:13.929 TRACE 11108 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([adress2_0_] : [VARCHAR]) - [Test Road, 0]
+2021-02-01 14:32:13.929 TRACE 11108 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([birthday3_0_] : [DATE]) - [1999-01-13]
+2021-02-01 14:32:13.929 TRACE 11108 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([can_vote4_0_] : [BOOLEAN]) - [true]
+2021-02-01 14:32:13.929 TRACE 11108 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([email5_0_] : [VARCHAR]) - [test@domain.com]
+2021-02-01 14:32:13.929 TRACE 11108 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([fullname6_0_] : [VARCHAR]) - [Some Random Name]
+2021-02-01 14:32:13.929 TRACE 11108 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([password7_0_] : [VARCHAR]) - [$argon2i$v=19$m=50,t=50,p=4$pJt2Y9DG8qHYznVk2Nqx0Q$d62v6/j9Pbqtg6tLghSJXSYGZ+zy7cgN4R5XMOpZ3e8]
+2021-02-01 14:32:13.929 TRACE 11108 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([phone8_0_] : [VARCHAR]) - [+5540028922]
+2021-02-01 14:32:13.932 TRACE 11108 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [4]
+2021-02-01 14:32:13.932 TRACE 11108 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [4]
+2021-02-01 14:32:24.191 TRACE 11108 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [38098299007]
+2021-02-01 14:32:24.192 TRACE 11108 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([cpf1_0_] : [VARCHAR]) - [38098299007]
+2021-02-01 14:32:24.192 TRACE 11108 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([adress2_0_] : [VARCHAR]) - [Test Road, 0]
+2021-02-01 14:32:24.192 TRACE 11108 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([birthday3_0_] : [DATE]) - [1999-01-13]
+2021-02-01 14:32:24.193 TRACE 11108 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([can_vote4_0_] : [BOOLEAN]) - [true]
+2021-02-01 14:32:24.193 TRACE 11108 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([email5_0_] : [VARCHAR]) - [test@domain.com]
+2021-02-01 14:32:24.193 TRACE 11108 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([fullname6_0_] : [VARCHAR]) - [Some Random Name]
+2021-02-01 14:32:24.193 TRACE 11108 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([password7_0_] : [VARCHAR]) - [$argon2i$v=19$m=50,t=50,p=4$pJt2Y9DG8qHYznVk2Nqx0Q$d62v6/j9Pbqtg6tLghSJXSYGZ+zy7cgN4R5XMOpZ3e8]
+2021-02-01 14:32:24.193 TRACE 11108 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([phone8_0_] : [VARCHAR]) - [+5540028922]
+2021-02-01 14:32:24.194 TRACE 11108 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [3]
+2021-02-01 14:32:24.194 TRACE 11108 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [3]
+2021-02-01 14:32:30.315 TRACE 11108 --- [http-nio-8080-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [38098299007]
+2021-02-01 14:32:30.315 TRACE 11108 --- [http-nio-8080-exec-7] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([cpf1_0_] : [VARCHAR]) - [38098299007]
+2021-02-01 14:32:30.315 TRACE 11108 --- [http-nio-8080-exec-7] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([adress2_0_] : [VARCHAR]) - [Test Road, 0]
+2021-02-01 14:32:30.316 TRACE 11108 --- [http-nio-8080-exec-7] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([birthday3_0_] : [DATE]) - [1999-01-13]
+2021-02-01 14:32:30.316 TRACE 11108 --- [http-nio-8080-exec-7] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([can_vote4_0_] : [BOOLEAN]) - [true]
+2021-02-01 14:32:30.316 TRACE 11108 --- [http-nio-8080-exec-7] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([email5_0_] : [VARCHAR]) - [test@domain.com]
+2021-02-01 14:32:30.316 TRACE 11108 --- [http-nio-8080-exec-7] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([fullname6_0_] : [VARCHAR]) - [Some Random Name]
+2021-02-01 14:32:30.316 TRACE 11108 --- [http-nio-8080-exec-7] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([password7_0_] : [VARCHAR]) - [$argon2i$v=19$m=50,t=50,p=4$pJt2Y9DG8qHYznVk2Nqx0Q$d62v6/j9Pbqtg6tLghSJXSYGZ+zy7cgN4R5XMOpZ3e8]
+2021-02-01 14:32:30.316 TRACE 11108 --- [http-nio-8080-exec-7] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([phone8_0_] : [VARCHAR]) - [+5540028922]
+2021-02-01 14:32:30.317 TRACE 11108 --- [http-nio-8080-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [2]
+2021-02-01 14:32:30.317 TRACE 11108 --- [http-nio-8080-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [2]
+2021-02-01 14:32:32.491 TRACE 11108 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [38098299007]
+2021-02-01 14:32:32.492 TRACE 11108 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([cpf1_0_] : [VARCHAR]) - [38098299007]
+2021-02-01 14:32:32.492 TRACE 11108 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([adress2_0_] : [VARCHAR]) - [Test Road, 0]
+2021-02-01 14:32:32.492 TRACE 11108 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([birthday3_0_] : [DATE]) - [1999-01-13]
+2021-02-01 14:32:32.492 TRACE 11108 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([can_vote4_0_] : [BOOLEAN]) - [true]
+2021-02-01 14:32:32.492 TRACE 11108 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([email5_0_] : [VARCHAR]) - [test@domain.com]
+2021-02-01 14:32:32.493 TRACE 11108 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([fullname6_0_] : [VARCHAR]) - [Some Random Name]
+2021-02-01 14:32:32.493 TRACE 11108 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([password7_0_] : [VARCHAR]) - [$argon2i$v=19$m=50,t=50,p=4$pJt2Y9DG8qHYznVk2Nqx0Q$d62v6/j9Pbqtg6tLghSJXSYGZ+zy7cgN4R5XMOpZ3e8]
+2021-02-01 14:32:32.493 TRACE 11108 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([phone8_0_] : [VARCHAR]) - [+5540028922]
+2021-02-01 14:32:32.493 TRACE 11108 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [2]
+2021-02-01 14:32:32.494 TRACE 11108 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [2]
+2021-02-01 14:32:55.245 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [38098299007]
+2021-02-01 14:32:55.246 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([cpf1_0_] : [VARCHAR]) - [38098299007]
+2021-02-01 14:32:55.246 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([adress2_0_] : [VARCHAR]) - [Test Road, 0]
+2021-02-01 14:32:55.246 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([birthday3_0_] : [DATE]) - [1999-01-13]
+2021-02-01 14:32:55.246 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([can_vote4_0_] : [BOOLEAN]) - [true]
+2021-02-01 14:32:55.246 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([email5_0_] : [VARCHAR]) - [test@domain.com]
+2021-02-01 14:32:55.246 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([fullname6_0_] : [VARCHAR]) - [Some Random Name]
+2021-02-01 14:32:55.246 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([password7_0_] : [VARCHAR]) - [$argon2i$v=19$m=50,t=50,p=4$pJt2Y9DG8qHYznVk2Nqx0Q$d62v6/j9Pbqtg6tLghSJXSYGZ+zy7cgN4R5XMOpZ3e8]
+2021-02-01 14:32:55.246 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([phone8_0_] : [VARCHAR]) - [+5540028922]
+2021-02-01 14:32:55.247 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2021-02-01 14:32:55.247 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([idschedu1_1_] : [BIGINT]) - [1]
+2021-02-01 14:32:55.248 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([category2_1_] : [VARCHAR]) - [string]
+2021-02-01 14:32:55.248 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([cpf_prop3_1_] : [VARCHAR]) - [38098299007]
+2021-02-01 14:32:55.248 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([descript4_1_] : [VARCHAR]) - [string]
+2021-02-01 14:32:55.248 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([end_date5_1_] : [TIMESTAMP]) - [2020-02-01T16:43:07.702]
+2021-02-01 14:32:55.248 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([n_votesn6_1_] : [BIGINT]) - [0]
+2021-02-01 14:32:55.248 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([n_votesp7_1_] : [BIGINT]) - [0]
+2021-02-01 14:32:55.248 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name8_1_] : [VARCHAR]) - [strin123123123g]
+2021-02-01 14:32:55.248 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([start_da9_1_] : [TIMESTAMP]) - [2022-02-01T16:43:07.702]
+2021-02-01 14:32:55.249 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2021-02-01 14:32:55.249 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([idschedu1_1_] : [BIGINT]) - [1]
+2021-02-01 14:32:55.250 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [38098299007]
+2021-02-01 14:32:55.250 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([cpf1_0_] : [VARCHAR]) - [38098299007]
+2021-02-01 14:33:25.308 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [38098299007]
+2021-02-01 14:33:25.309 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([cpf1_0_] : [VARCHAR]) - [38098299007]
+2021-02-01 14:33:25.309 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([adress2_0_] : [VARCHAR]) - [Test Road, 0]
+2021-02-01 14:33:25.309 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([birthday3_0_] : [DATE]) - [1999-01-13]
+2021-02-01 14:33:25.310 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([can_vote4_0_] : [BOOLEAN]) - [true]
+2021-02-01 14:33:25.310 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([email5_0_] : [VARCHAR]) - [test@domain.com]
+2021-02-01 14:33:25.310 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([fullname6_0_] : [VARCHAR]) - [Some Random Name]
+2021-02-01 14:33:25.310 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([password7_0_] : [VARCHAR]) - [$argon2i$v=19$m=50,t=50,p=4$pJt2Y9DG8qHYznVk2Nqx0Q$d62v6/j9Pbqtg6tLghSJXSYGZ+zy7cgN4R5XMOpZ3e8]
+2021-02-01 14:33:25.310 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([phone8_0_] : [VARCHAR]) - [+5540028922]
+2021-02-01 14:33:25.310 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2021-02-01 14:33:25.311 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([idschedu1_1_] : [BIGINT]) - [1]
+2021-02-01 14:33:25.311 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([category2_1_] : [VARCHAR]) - [string]
+2021-02-01 14:33:25.311 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([cpf_prop3_1_] : [VARCHAR]) - [38098299007]
+2021-02-01 14:33:25.311 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([descript4_1_] : [VARCHAR]) - [string]
+2021-02-01 14:33:25.311 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([end_date5_1_] : [TIMESTAMP]) - [2022-02-01T16:43:07.702]
+2021-02-01 14:33:25.311 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([n_votesn6_1_] : [BIGINT]) - [0]
+2021-02-01 14:33:25.311 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([n_votesp7_1_] : [BIGINT]) - [0]
+2021-02-01 14:33:25.311 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name8_1_] : [VARCHAR]) - [strin123123123g]
+2021-02-01 14:33:25.311 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([start_da9_1_] : [TIMESTAMP]) - [2020-02-01T16:43:07.702]
+2021-02-01 14:33:25.312 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2021-02-01 14:33:25.312 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([idschedu1_1_] : [BIGINT]) - [1]
+2021-02-01 14:33:25.312 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [38098299007]
+2021-02-01 14:33:25.312 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([cpf1_0_] : [VARCHAR]) - [38098299007]
+2021-02-01 14:33:25.364 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [38098299007]
+2021-02-01 14:33:25.364 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BIGINT] - [1]
+2021-02-01 14:33:25.368 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BOOLEAN] - [true]
+2021-02-01 14:33:25.369 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [38098299007]
+2021-02-01 14:33:25.369 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BIGINT] - [1]
+2021-02-01 14:33:25.369 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [BIGINT] - [2]
+2021-02-01 14:33:25.369 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [string]
+2021-02-01 14:33:25.369 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [38098299007]
+2021-02-01 14:33:25.369 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [string]
+2021-02-01 14:33:25.369 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [TIMESTAMP] - [2022-02-01T16:43:07.702]
+2021-02-01 14:33:25.369 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [0]
+2021-02-01 14:33:25.369 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [1]
+2021-02-01 14:33:25.369 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [strin123123123g]
+2021-02-01 14:33:25.370 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [TIMESTAMP] - [2020-02-01T16:43:07.702]
+2021-02-01 14:33:25.370 TRACE 11108 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [BIGINT] - [1]
+2021-02-01 14:33:25.370  INFO 11108 --- [http-nio-8080-exec-9] com.nt.votationt.service.VoteService     : (Vote)(Insert) Vote [id=2, idschedule=1, aprovation=true, cpfPerson=38098299007] Inserted Successfully
+2021-02-01 14:33:55.029 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [2]
+2021-02-01 14:33:55.029 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([id1_2_] : [BIGINT]) - [2]
+2021-02-01 14:33:55.030 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([aprovati2_2_] : [BOOLEAN]) - [true]
+2021-02-01 14:33:55.030 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([cpf_pers3_2_] : [VARCHAR]) - [38098299007]
+2021-02-01 14:33:55.030 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([idschedu4_2_] : [BIGINT]) - [1]
+2021-02-01 14:33:55.030 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [38098299007]
+2021-02-01 14:33:55.030 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([cpf1_0_] : [VARCHAR]) - [38098299007]
+2021-02-01 14:33:55.030 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([adress2_0_] : [VARCHAR]) - [Test Road, 0]
+2021-02-01 14:33:55.031 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([birthday3_0_] : [DATE]) - [1999-01-13]
+2021-02-01 14:33:55.031 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([can_vote4_0_] : [BOOLEAN]) - [true]
+2021-02-01 14:33:55.031 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([email5_0_] : [VARCHAR]) - [test@domain.com]
+2021-02-01 14:33:55.031 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([fullname6_0_] : [VARCHAR]) - [Some Random Name]
+2021-02-01 14:33:55.031 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([password7_0_] : [VARCHAR]) - [$argon2i$v=19$m=50,t=50,p=4$pJt2Y9DG8qHYznVk2Nqx0Q$d62v6/j9Pbqtg6tLghSJXSYGZ+zy7cgN4R5XMOpZ3e8]
+2021-02-01 14:33:55.031 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([phone8_0_] : [VARCHAR]) - [+5540028922]
+2021-02-01 14:33:55.081 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2021-02-01 14:33:55.081 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([idschedu1_1_] : [BIGINT]) - [1]
+2021-02-01 14:33:55.081 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([category2_1_] : [VARCHAR]) - [string]
+2021-02-01 14:33:55.081 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([cpf_prop3_1_] : [VARCHAR]) - [38098299007]
+2021-02-01 14:33:55.081 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([descript4_1_] : [VARCHAR]) - [string]
+2021-02-01 14:33:55.081 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([end_date5_1_] : [TIMESTAMP]) - [2022-02-01T16:43:07.702]
+2021-02-01 14:33:55.081 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([n_votesn6_1_] : [BIGINT]) - [0]
+2021-02-01 14:33:55.081 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([n_votesp7_1_] : [BIGINT]) - [1]
+2021-02-01 14:33:55.082 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name8_1_] : [VARCHAR]) - [strin123123123g]
+2021-02-01 14:33:55.082 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([start_da9_1_] : [TIMESTAMP]) - [2020-02-01T16:43:07.702]
+2021-02-01 14:33:55.088 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [2]
+2021-02-01 14:33:55.089  INFO 11108 --- [http-nio-8080-exec-1] com.nt.votationt.service.VoteService     : (Vote)(Delete) Vote [id=2, idschedule=1, aprovation=true, cpfPerson=38098299007] Deleted Successfully
+2021-02-01 14:33:55.091 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [string]
+2021-02-01 14:33:55.091 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [38098299007]
+2021-02-01 14:33:55.091 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [string]
+2021-02-01 14:33:55.091 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [TIMESTAMP] - [2022-02-01T16:43:07.702]
+2021-02-01 14:33:55.091 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [0]
+2021-02-01 14:33:55.091 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [0]
+2021-02-01 14:33:55.091 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [strin123123123g]
+2021-02-01 14:33:55.091 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [TIMESTAMP] - [2020-02-01T16:43:07.702]
+2021-02-01 14:33:55.092 TRACE 11108 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [BIGINT] - [1]
+2021-02-01 14:34:21.269 TRACE 11108 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2021-02-01 14:34:21.269 TRACE 11108 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([idschedu1_1_] : [BIGINT]) - [1]
+2021-02-01 14:34:21.270 TRACE 11108 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([category2_1_] : [VARCHAR]) - [string]
+2021-02-01 14:34:21.270 TRACE 11108 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([cpf_prop3_1_] : [VARCHAR]) - [38098299007]
+2021-02-01 14:34:21.270 TRACE 11108 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([descript4_1_] : [VARCHAR]) - [string]
+2021-02-01 14:34:21.270 TRACE 11108 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([end_date5_1_] : [TIMESTAMP]) - [2022-02-01T16:43:07.702]
+2021-02-01 14:34:21.270 TRACE 11108 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([n_votesn6_1_] : [BIGINT]) - [0]
+2021-02-01 14:34:21.270 TRACE 11108 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([n_votesp7_1_] : [BIGINT]) - [0]
+2021-02-01 14:34:21.270 TRACE 11108 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name8_1_] : [VARCHAR]) - [strin123123123g]
+2021-02-01 14:34:21.270 TRACE 11108 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([start_da9_1_] : [TIMESTAMP]) - [2020-02-01T16:43:07.702]
+2021-02-01 14:34:21.270 TRACE 11108 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2021-02-01 14:34:21.270 TRACE 11108 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([idschedu1_1_] : [BIGINT]) - [1]
+2021-02-01 14:34:30.798 TRACE 11108 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2021-02-01 14:34:30.798 TRACE 11108 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([idschedu1_1_] : [BIGINT]) - [1]
+2021-02-01 14:34:30.798 TRACE 11108 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([category2_1_] : [VARCHAR]) - [string]
+2021-02-01 14:34:30.798 TRACE 11108 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([cpf_prop3_1_] : [VARCHAR]) - [38098299007]
+2021-02-01 14:34:30.798 TRACE 11108 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([descript4_1_] : [VARCHAR]) - [string]
+2021-02-01 14:34:30.798 TRACE 11108 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([end_date5_1_] : [TIMESTAMP]) - [2022-02-01T16:43:07.702]
+2021-02-01 14:34:30.798 TRACE 11108 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([n_votesn6_1_] : [BIGINT]) - [0]
+2021-02-01 14:34:30.799 TRACE 11108 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([n_votesp7_1_] : [BIGINT]) - [0]
+2021-02-01 14:34:30.799 TRACE 11108 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name8_1_] : [VARCHAR]) - [strin123123123g]
+2021-02-01 14:34:30.799 TRACE 11108 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([start_da9_1_] : [TIMESTAMP]) - [2020-02-01T16:43:07.702]
+2021-02-01 14:34:30.800 TRACE 11108 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2021-02-01 14:34:30.800 TRACE 11108 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([idschedu1_1_] : [BIGINT]) - [1]
+2021-02-01 14:34:30.801 TRACE 11108 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [38098299007]
+2021-02-01 14:34:30.801 TRACE 11108 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([cpf1_0_] : [VARCHAR]) - [38098299007]
+2021-02-01 14:34:30.802 TRACE 11108 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([adress2_0_] : [VARCHAR]) - [Test Road, 0]
+2021-02-01 14:34:30.802 TRACE 11108 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([birthday3_0_] : [DATE]) - [1999-01-13]
+2021-02-01 14:34:30.802 TRACE 11108 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([can_vote4_0_] : [BOOLEAN]) - [true]
+2021-02-01 14:34:30.802 TRACE 11108 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([email5_0_] : [VARCHAR]) - [test@domain.com]
+2021-02-01 14:34:30.802 TRACE 11108 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([fullname6_0_] : [VARCHAR]) - [Some Random Name]
+2021-02-01 14:34:30.802 TRACE 11108 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([password7_0_] : [VARCHAR]) - [$argon2i$v=19$m=50,t=50,p=4$pJt2Y9DG8qHYznVk2Nqx0Q$d62v6/j9Pbqtg6tLghSJXSYGZ+zy7cgN4R5XMOpZ3e8]
+2021-02-01 14:34:30.802 TRACE 11108 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([phone8_0_] : [VARCHAR]) - [+5540028922]
+2021-02-01 14:34:45.429 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2021-02-01 14:34:45.429 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([idschedu1_1_] : [BIGINT]) - [1]
+2021-02-01 14:34:45.430 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([category2_1_] : [VARCHAR]) - [string]
+2021-02-01 14:34:45.430 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([cpf_prop3_1_] : [VARCHAR]) - [38098299007]
+2021-02-01 14:34:45.430 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([descript4_1_] : [VARCHAR]) - [string]
+2021-02-01 14:34:45.430 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([end_date5_1_] : [TIMESTAMP]) - [2022-02-01T16:43:07.702]
+2021-02-01 14:34:45.430 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([n_votesn6_1_] : [BIGINT]) - [0]
+2021-02-01 14:34:45.430 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([n_votesp7_1_] : [BIGINT]) - [0]
+2021-02-01 14:34:45.430 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([name8_1_] : [VARCHAR]) - [strin123123123g]
+2021-02-01 14:34:45.430 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([start_da9_1_] : [TIMESTAMP]) - [2020-02-01T16:43:07.702]
+2021-02-01 14:34:45.431 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2021-02-01 14:34:45.431 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([idschedu1_1_] : [BIGINT]) - [1]
+2021-02-01 14:34:45.431 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [38098299007]
+2021-02-01 14:34:45.431 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([cpf1_0_] : [VARCHAR]) - [38098299007]
+2021-02-01 14:34:45.432 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([adress2_0_] : [VARCHAR]) - [Test Road, 0]
+2021-02-01 14:34:45.432 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([birthday3_0_] : [DATE]) - [1999-01-13]
+2021-02-01 14:34:45.432 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([can_vote4_0_] : [BOOLEAN]) - [true]
+2021-02-01 14:34:45.432 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([email5_0_] : [VARCHAR]) - [test@domain.com]
+2021-02-01 14:34:45.432 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([fullname6_0_] : [VARCHAR]) - [Some Random Name]
+2021-02-01 14:34:45.432 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([password7_0_] : [VARCHAR]) - [$argon2i$v=19$m=50,t=50,p=4$pJt2Y9DG8qHYznVk2Nqx0Q$d62v6/j9Pbqtg6tLghSJXSYGZ+zy7cgN4R5XMOpZ3e8]
+2021-02-01 14:34:45.432 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicExtractor   : extracted value ([phone8_0_] : [VARCHAR]) - [+5540028922]
+2021-02-01 14:34:45.487  INFO 11108 --- [http-nio-8080-exec-2] c.nt.votationt.service.ScheduleService   : (Schedule)(Delete) Schedule [idschedule=1, category=string, name=strin123123123g, description=string, startDate=2020-02-01T16:43:07.702, endDate=2022-02-01T16:43:07.702, nVotesP=0, nVotesN=0, cpfProponent=38098299007] Deleted Successfully
+2021-02-01 14:34:45.488 TRACE 11108 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2021-02-01 14:36:29.213  INFO 11108 --- [RMI TCP Connection(17)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2021-02-01 14:36:29.279  INFO 11108 --- [RMI TCP Connection(17)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-02-01 14:36:29.280 TRACE 11108 --- [RMI TCP Connection(17)-127.0.0.1] o.h.type.spi.TypeConfiguration$Scope     : Handling #sessionFactoryClosed from [org.hibernate.internal.SessionFactoryImpl@431d6ca3] for TypeConfiguration
+2021-02-01 14:36:29.280 DEBUG 11108 --- [RMI TCP Connection(17)-127.0.0.1] o.h.type.spi.TypeConfiguration$Scope     : Un-scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration$Scope@7193ab8b] from SessionFactory [org.hibernate.internal.SessionFactoryImpl@431d6ca3]
+2021-02-01 14:36:29.281  INFO 11108 --- [RMI TCP Connection(17)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01 14:36:29.282  INFO 11108 --- [RMI TCP Connection(17)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-02-01 14:36:29.521  INFO 11108 --- [RMI TCP Connection(17)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-02-01 14:38:33.074  INFO 13952 --- [main] com.nt.votationt.VotationtApplication    : Starting VotationtApplication on DESKTOP-PA767EV with PID 13952 (C:\Users\Anthony\Desktop\Nt\Git\VotatioNT-v1\votationt\target\classes started by Anthony in C:\Users\Anthony\Desktop\Nt\Git\VotatioNT-v1\votationt)
+2021-02-01 14:38:33.077  INFO 13952 --- [main] com.nt.votationt.VotationtApplication    : No active profile set, falling back to default profiles: default
+2021-02-01 14:38:33.762  INFO 13952 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2021-02-01 14:38:33.817  INFO 13952 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 49ms. Found 3 JPA repository interfaces.
+2021-02-01 14:38:34.205  INFO 13952 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-02-01 14:38:34.212  INFO 13952 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-02-01 14:38:34.212  INFO 13952 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-02-01 14:38:34.295  INFO 13952 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-02-01 14:38:34.295  INFO 13952 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1177 ms
+2021-02-01 14:38:34.334  INFO 13952 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-02-01 14:38:34.460  INFO 13952 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-02-01 14:38:34.465  INFO 13952 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2'. Database available at 'jdbc:h2:file:./votationt.db'
+2021-02-01 14:38:34.558  INFO 13952 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-01 14:38:34.595  INFO 13952 --- [task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-02-01 14:38:34.632  INFO 13952 --- [task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.22.Final
+2021-02-01 14:38:34.733  INFO 13952 --- [task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2021-02-01 14:38:34.751 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration boolean -> org.hibernate.type.BooleanType@654eba44
+2021-02-01 14:38:34.751 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration boolean -> org.hibernate.type.BooleanType@654eba44
+2021-02-01 14:38:34.752 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Boolean -> org.hibernate.type.BooleanType@654eba44
+2021-02-01 14:38:34.752 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration numeric_boolean -> org.hibernate.type.NumericBooleanType@5762ff84
+2021-02-01 14:38:34.753 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration true_false -> org.hibernate.type.TrueFalseType@e0612b1
+2021-02-01 14:38:34.753 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration yes_no -> org.hibernate.type.YesNoType@7301ad49
+2021-02-01 14:38:34.754 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte -> org.hibernate.type.ByteType@5b23e43c
+2021-02-01 14:38:34.754 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte -> org.hibernate.type.ByteType@5b23e43c
+2021-02-01 14:38:34.754 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Byte -> org.hibernate.type.ByteType@5b23e43c
+2021-02-01 14:38:34.755 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration character -> org.hibernate.type.CharacterType@4e61a712
+2021-02-01 14:38:34.755 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration char -> org.hibernate.type.CharacterType@4e61a712
+2021-02-01 14:38:34.755 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Character -> org.hibernate.type.CharacterType@4e61a712
+2021-02-01 14:38:34.756 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration short -> org.hibernate.type.ShortType@1ef21881
+2021-02-01 14:38:34.756 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration short -> org.hibernate.type.ShortType@1ef21881
+2021-02-01 14:38:34.756 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Short -> org.hibernate.type.ShortType@1ef21881
+2021-02-01 14:38:34.757 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration integer -> org.hibernate.type.IntegerType@111ac097
+2021-02-01 14:38:34.757 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration int -> org.hibernate.type.IntegerType@111ac097
+2021-02-01 14:38:34.758 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Integer -> org.hibernate.type.IntegerType@111ac097
+2021-02-01 14:38:34.758 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration long -> org.hibernate.type.LongType@3c534a33
+2021-02-01 14:38:34.759 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration long -> org.hibernate.type.LongType@3c534a33
+2021-02-01 14:38:34.759 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Long -> org.hibernate.type.LongType@3c534a33
+2021-02-01 14:38:34.759 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration float -> org.hibernate.type.FloatType@3d6be1b7
+2021-02-01 14:38:34.759 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration float -> org.hibernate.type.FloatType@3d6be1b7
+2021-02-01 14:38:34.760 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Float -> org.hibernate.type.FloatType@3d6be1b7
+2021-02-01 14:38:34.760 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration double -> org.hibernate.type.DoubleType@a2f19a
+2021-02-01 14:38:34.760 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration double -> org.hibernate.type.DoubleType@a2f19a
+2021-02-01 14:38:34.761 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Double -> org.hibernate.type.DoubleType@a2f19a
+2021-02-01 14:38:34.761 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration big_decimal -> org.hibernate.type.BigDecimalType@1cda27f0
+2021-02-01 14:38:34.762 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.math.BigDecimal -> org.hibernate.type.BigDecimalType@1cda27f0
+2021-02-01 14:38:34.763 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration big_integer -> org.hibernate.type.BigIntegerType@732116a2
+2021-02-01 14:38:34.763 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.math.BigInteger -> org.hibernate.type.BigIntegerType@732116a2
+2021-02-01 14:38:34.764 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration string -> org.hibernate.type.StringType@1e1570d9
+2021-02-01 14:38:34.764 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.String -> org.hibernate.type.StringType@1e1570d9
+2021-02-01 14:38:34.764 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration nstring -> org.hibernate.type.StringNVarcharType@41bdda21
+2021-02-01 14:38:34.766 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration ncharacter -> org.hibernate.type.CharacterNCharType@7ab2387b
+2021-02-01 14:38:34.767 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration url -> org.hibernate.type.UrlType@53e7e3c6
+2021-02-01 14:38:34.768 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.net.URL -> org.hibernate.type.UrlType@53e7e3c6
+2021-02-01 14:38:34.769 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration Duration -> org.hibernate.type.DurationType@49180c94
+2021-02-01 14:38:34.769 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.Duration -> org.hibernate.type.DurationType@49180c94
+2021-02-01 14:38:34.770 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration Instant -> org.hibernate.type.InstantType@6bca8d1b
+2021-02-01 14:38:34.770 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.Instant -> org.hibernate.type.InstantType@6bca8d1b
+2021-02-01 14:38:34.771 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalDateTime -> org.hibernate.type.LocalDateTimeType@6a3a355
+2021-02-01 14:38:34.771 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalDateTime -> org.hibernate.type.LocalDateTimeType@6a3a355
+2021-02-01 14:38:34.772 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalDate -> org.hibernate.type.LocalDateType@351dd551
+2021-02-01 14:38:34.772 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalDate -> org.hibernate.type.LocalDateType@351dd551
+2021-02-01 14:38:34.773 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalTime -> org.hibernate.type.LocalTimeType@13dd2385
+2021-02-01 14:38:34.773 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalTime -> org.hibernate.type.LocalTimeType@13dd2385
+2021-02-01 14:38:34.773 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@67df085c
+2021-02-01 14:38:34.774 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@67df085c
+2021-02-01 14:38:34.774 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetTime -> org.hibernate.type.OffsetTimeType@604df347
+2021-02-01 14:38:34.775 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.OffsetTime -> org.hibernate.type.OffsetTimeType@604df347
+2021-02-01 14:38:34.776 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@4f33507c
+2021-02-01 14:38:34.776 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@4f33507c
+2021-02-01 14:38:34.777 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration date -> org.hibernate.type.DateType@5ec1751
+2021-02-01 14:38:34.777 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Date -> org.hibernate.type.DateType@5ec1751
+2021-02-01 14:38:34.778 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration time -> org.hibernate.type.TimeType@546ec08e
+2021-02-01 14:38:34.779 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Time -> org.hibernate.type.TimeType@546ec08e
+2021-02-01 14:38:34.780 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration timestamp -> org.hibernate.type.TimestampType@796dfe4
+2021-02-01 14:38:34.780 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Timestamp -> org.hibernate.type.TimestampType@796dfe4
+2021-02-01 14:38:34.780 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Date -> org.hibernate.type.TimestampType@796dfe4
+2021-02-01 14:38:34.781 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration dbtimestamp -> org.hibernate.type.DbTimestampType@7af0999a
+2021-02-01 14:38:34.782 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration calendar -> org.hibernate.type.CalendarType@7b1f1680
+2021-02-01 14:38:34.782 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Calendar -> org.hibernate.type.CalendarType@7b1f1680
+2021-02-01 14:38:34.782 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.GregorianCalendar -> org.hibernate.type.CalendarType@7b1f1680
+2021-02-01 14:38:34.782 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration calendar_date -> org.hibernate.type.CalendarDateType@40e5f7f3
+2021-02-01 14:38:34.783 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration calendar_time -> org.hibernate.type.CalendarTimeType@6feaf2f8
+2021-02-01 14:38:34.784 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration locale -> org.hibernate.type.LocaleType@2959bb65
+2021-02-01 14:38:34.784 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Locale -> org.hibernate.type.LocaleType@2959bb65
+2021-02-01 14:38:34.784 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration currency -> org.hibernate.type.CurrencyType@3b6f0436
+2021-02-01 14:38:34.784 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Currency -> org.hibernate.type.CurrencyType@3b6f0436
+2021-02-01 14:38:34.785 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration timezone -> org.hibernate.type.TimeZoneType@16799a4f
+2021-02-01 14:38:34.785 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.TimeZone -> org.hibernate.type.TimeZoneType@16799a4f
+2021-02-01 14:38:34.786 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration class -> org.hibernate.type.ClassType@607e8788
+2021-02-01 14:38:34.786 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Class -> org.hibernate.type.ClassType@607e8788
+2021-02-01 14:38:34.786 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration uuid-binary -> org.hibernate.type.UUIDBinaryType@7053561f
+2021-02-01 14:38:34.786 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.UUID -> org.hibernate.type.UUIDBinaryType@7053561f
+2021-02-01 14:38:34.787 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration uuid-char -> org.hibernate.type.UUIDCharType@35daf5d9
+2021-02-01 14:38:34.787 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration binary -> org.hibernate.type.BinaryType@2e892f55
+2021-02-01 14:38:34.787 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte[] -> org.hibernate.type.BinaryType@2e892f55
+2021-02-01 14:38:34.788 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration [B -> org.hibernate.type.BinaryType@2e892f55
+2021-02-01 14:38:34.788 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration wrapper-binary -> org.hibernate.type.WrapperBinaryType@decf417
+2021-02-01 14:38:34.788 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration Byte[] -> org.hibernate.type.WrapperBinaryType@decf417
+2021-02-01 14:38:34.788 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration [Ljava.lang.Byte; -> org.hibernate.type.WrapperBinaryType@decf417
+2021-02-01 14:38:34.789 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration row_version -> org.hibernate.type.RowVersionType@8551820
+2021-02-01 14:38:34.789 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration image -> org.hibernate.type.ImageType@718020d7
+2021-02-01 14:38:34.791 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration characters -> org.hibernate.type.CharArrayType@f698eb8
+2021-02-01 14:38:34.791 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration char[] -> org.hibernate.type.CharArrayType@f698eb8
+2021-02-01 14:38:34.791 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration [C -> org.hibernate.type.CharArrayType@f698eb8
+2021-02-01 14:38:34.792 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration wrapper-characters -> org.hibernate.type.CharacterArrayType@848969b
+2021-02-01 14:38:34.792 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration [Ljava.lang.Character; -> org.hibernate.type.CharacterArrayType@848969b
+2021-02-01 14:38:34.792 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration Character[] -> org.hibernate.type.CharacterArrayType@848969b
+2021-02-01 14:38:34.792 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration text -> org.hibernate.type.TextType@28e7d61c
+2021-02-01 14:38:34.792 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration ntext -> org.hibernate.type.NTextType@7d9fd891
+2021-02-01 14:38:34.793 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration blob -> org.hibernate.type.BlobType@6da18fbb
+2021-02-01 14:38:34.793 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Blob -> org.hibernate.type.BlobType@6da18fbb
+2021-02-01 14:38:34.793 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_blob -> org.hibernate.type.MaterializedBlobType@2e06c488
+2021-02-01 14:38:34.794 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration clob -> org.hibernate.type.ClobType@7687a2d
+2021-02-01 14:38:34.795 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Clob -> org.hibernate.type.ClobType@7687a2d
+2021-02-01 14:38:34.796 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration nclob -> org.hibernate.type.NClobType@1739f60a
+2021-02-01 14:38:34.796 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.NClob -> org.hibernate.type.NClobType@1739f60a
+2021-02-01 14:38:34.796 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_clob -> org.hibernate.type.MaterializedClobType@663bac61
+2021-02-01 14:38:34.796 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_nclob -> org.hibernate.type.MaterializedNClobType@794302d2
+2021-02-01 14:38:34.797 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration serializable -> org.hibernate.type.SerializableType@41aa1a9f
+2021-02-01 14:38:34.799 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration object -> org.hibernate.type.ObjectType@5c9e145
+2021-02-01 14:38:34.799 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Object -> org.hibernate.type.ObjectType@5c9e145
+2021-02-01 14:38:34.799 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_date -> org.hibernate.type.AdaptedImmutableType@6b5a9d05
+2021-02-01 14:38:34.799 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_time -> org.hibernate.type.AdaptedImmutableType@766d0a2
+2021-02-01 14:38:34.799 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_timestamp -> org.hibernate.type.AdaptedImmutableType@1a9b49fd
+2021-02-01 14:38:34.800 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_dbtimestamp -> org.hibernate.type.AdaptedImmutableType@27688f06
+2021-02-01 14:38:34.800 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_calendar -> org.hibernate.type.AdaptedImmutableType@18e59c5b
+2021-02-01 14:38:34.800 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_calendar_date -> org.hibernate.type.AdaptedImmutableType@29b7ac25
+2021-02-01 14:38:34.800 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_binary -> org.hibernate.type.AdaptedImmutableType@6923dc4f
+2021-02-01 14:38:34.800 DEBUG 13952 --- [task-1] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_serializable -> org.hibernate.type.AdaptedImmutableType@ad07ed2
+2021-02-01 14:38:34.803  WARN 13952 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-02-01 14:38:34.836  INFO 13952 --- [task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-02-01 14:38:34.893 DEBUG 13952 --- [task-1] o.h.type.spi.TypeConfiguration$Scope     : Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@2178e8ad] to MetadataBuildingContext [org.hibernate.boot.internal.MetadataBuildingContextRootImpl@1a2266bb]
+2021-02-01 14:38:34.920  INFO 13952 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-02-01 14:38:35.034 DEBUG 13952 --- [task-1] o.h.type.spi.TypeConfiguration$Scope     : Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@2178e8ad] to SessionFactoryImpl [org.hibernate.internal.SessionFactoryImpl@7aae3cee]
+2021-02-01 14:38:35.157  INFO 13952 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-02-01 14:38:35.158  INFO 13952 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-02-01 14:38:35.172  INFO 13952 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-02-01 14:38:35.203  INFO 13952 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-02-01 14:38:35.301  INFO 13952 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getByCpfUsingGET_1
+2021-02-01 14:38:35.324  INFO 13952 --- [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-02-01 14:38:35.325  INFO 13952 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_1
+2021-02-01 14:38:35.327  INFO 13952 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteByIdUsingDELETE_1
+2021-02-01 14:38:35.329  INFO 13952 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllUsingGET_1
+2021-02-01 14:38:35.330 TRACE 13952 --- [task-1] o.h.type.spi.TypeConfiguration$Scope     : Handling #sessionFactoryCreated from [org.hibernate.internal.SessionFactoryImpl@7aae3cee] for TypeConfiguration
+2021-02-01 14:38:35.331  INFO 13952 --- [task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-02-01 14:38:35.333  INFO 13952 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getByIdUsingGET_1
+2021-02-01 14:38:35.335  INFO 13952 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getByIdUsingGET_2
+2021-02-01 14:38:35.340  INFO 13952 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: patchUpdateUsingPATCH_1
+2021-02-01 14:38:35.341  INFO 13952 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_1
+2021-02-01 14:38:35.344  INFO 13952 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_2
+2021-02-01 14:38:35.346  INFO 13952 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteByIdUsingDELETE_2
+2021-02-01 14:38:35.348  INFO 13952 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getAllUsingGET_2
+2021-02-01 14:38:35.350  INFO 13952 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getByIdUsingGET_3
+2021-02-01 14:38:35.358  INFO 13952 --- [main] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2021-02-01 14:38:35.431 DEBUG 13952 --- [main] o.h.stat.internal.StatisticsInitiator    : Statistics initialized [enabled=false]
+2021-02-01 14:38:35.662  INFO 13952 --- [main] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2021-02-01 14:38:35.669  INFO 13952 --- [main] com.nt.votationt.VotationtApplication    : Started VotationtApplication in 2.851 seconds (JVM running for 3.437)
+2021-02-01 14:39:40.545  INFO 13952 --- [RMI TCP Connection(9)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2021-02-01 14:39:40.613  INFO 13952 --- [RMI TCP Connection(9)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-02-01 14:39:40.614 TRACE 13952 --- [RMI TCP Connection(9)-127.0.0.1] o.h.type.spi.TypeConfiguration$Scope     : Handling #sessionFactoryClosed from [org.hibernate.internal.SessionFactoryImpl@7aae3cee] for TypeConfiguration
+2021-02-01 14:39:40.614 DEBUG 13952 --- [RMI TCP Connection(9)-127.0.0.1] o.h.type.spi.TypeConfiguration$Scope     : Un-scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration$Scope@6d7c87d3] from SessionFactory [org.hibernate.internal.SessionFactoryImpl@7aae3cee]
+2021-02-01 14:39:40.616  INFO 13952 --- [RMI TCP Connection(9)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-01 14:39:40.616  INFO 13952 --- [RMI TCP Connection(9)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-02-01 14:39:40.848  INFO 13952 --- [RMI TCP Connection(9)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

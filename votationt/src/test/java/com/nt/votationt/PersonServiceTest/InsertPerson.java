@@ -162,6 +162,7 @@ public class InsertPerson {
 		person.setAdress("St Something some Number");
 		// person.setBirthday(Date.valueOf("1991/11/11"));
 		person.setCpf("85239109052");
+		person.setPassword("Password+123");
 		person.setCanVote(false);
 		Mockito.when(verify.verifyPhone(person.getPhone())).thenReturn(true);
 		Mockito.when(verify.verifyEmail(person.getEmail())).thenReturn(true);

@@ -41,8 +41,9 @@ public class ScheduleService {
 			schedule.setStartDate(LocalDateTime.now());
 			schedule.setEndDate(LocalDateTime.now().plusMinutes(1L));
 		}
-		LOGGER.info("(Schedule) "+ schedule.toString()  +" Inserted Successfully");
-		return schedulerepository.save(schedule);
+		Schedule scsv = schedulerepository.save(schedule); // if not did on that way id on log will be null because auto-increment
+		LOGGER.info("(Schedule)(Insert) "+ scsv.toString()  +" Inserted Successfully");
+		return scsv;
 	}
 
 	public Schedule updateSchedule(ScheduleFormUpdate form) {
@@ -50,7 +51,7 @@ public class ScheduleService {
 		if (isScheduleExist(form.getIdschedule()) == false) throw new ResourceNotFoundExeception("Schedule not Found");
 		if (isAuthor(form) == false) throw new UnauthorizedException("Error only the author is authorized to modify");
 		Schedule uSchedule = new Schedule(new ScheduleFormInsert(form)); 
-		LOGGER.info("(Schedule) "+ scheduleDb.toString()  +" Updated to " + uSchedule.toString() );
+		LOGGER.info("(Schedule)(Update) "+ scheduleDb.toString()  +" Updated to " + uSchedule.toString() );
 		return insertSchedule(new ScheduleFormInsert(form), form.getIdschedule());
 	}
 
@@ -86,15 +87,15 @@ public class ScheduleService {
 		Schedule schedule = schedulerepository.findByIdschedule(idSchedule);
 		if (!schedule.getCpfProponent().equals(form.getCpf())) throw new UnauthorizedException("Unauthorized, Only the Author can delete the schedule");
 		if (personservice.login(form.getCpf(), form.getPassword()) == false) throw new UnauthorizedException("Unauthorized Wrong Password");
-		LOGGER.info("(Schedule) "+ schedule.toString()  +" Deleted Successfully");
+		LOGGER.info("(Schedule)(Delete) "+ schedule.toString()  +" Deleted Successfully");
 		schedulerepository.delete(schedule);
 	}
 
 	public Schedule updateDeletedVote(Schedule schedule, boolean vote) {
 		if (vote = true) {
-			schedule.setnVotesP(schedule.getnVotesP() - 1);
+			schedule.setNVotesP(schedule.getNVotesP() - 1);
 		} else {
-			schedule.setnVotesN(schedule.getnVotesN() - 1);
+			schedule.setNVotesN(schedule.getNVotesN() - 1);
 		}
 		return schedule;
 	}
@@ -127,8 +128,8 @@ public class ScheduleService {
 		if (isScheduleExist(idSchedule) == false) throw new ResourceNotFoundExeception("Schedule Not Found");
 		Schedule sdb = schedulerepository.findByIdschedule(idSchedule);
 		String state = datecheck.checkStatus(sdb);
-		Long vp = sdb.getnVotesP();
-		Long vn = sdb.getnVotesN();
+		Long vp = sdb.getNVotesP();
+		Long vn = sdb.getNVotesN();
 		String percent;
 		try {
 			percent = Double.toString((100 * vp) / (vp + vn)) + "%";

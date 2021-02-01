@@ -47,7 +47,7 @@ public class PersonService {
 		if (type == "insert" && cpfIsValid(person) == false)throw new UnauthorizedException("Invalid CPF");
 		if (personAlreadyExist(person.getCpf()) == true && (type != "update") == true) throw new AlreadyExistException("Cpf Already Registred");
 		person.setPassword(hashing.hash(50, 50, 4, person.getPassword().toCharArray()));
-		LOGGER.info("(Person) "+ person.toString()  +" Inserted Successfully");
+		LOGGER.info("(Person)(Insert) "+ person.toString()  +" Inserted Successfully");
 		return repository.save(person);
 	}
 
@@ -56,7 +56,7 @@ public class PersonService {
 		if (person == null)throw new ResourceNotFoundExeception("User Not Found Can't update");
 		if (login(form.getCpf(), form.getNowpassword()) == false) throw new UnauthorizedException("Unauthorized Wrong Password");
 		Person uperson = new Person(form);
-		LOGGER.info("(Person) "+ person.toString()  +" Updated to " + uperson.toString() );
+		LOGGER.info("(Person)(Update) "+ person.toString()  +" Updated to " + uperson.toString() );
 		insertPerson(uperson, "update");
 	}
 
@@ -94,7 +94,7 @@ public class PersonService {
 		if (personAlreadyExist(form.getCpf()) == false)	throw new ResourceNotFoundExeception("Cpf '" + form.getCpf() + "' not found.");
 		Person person = repository.findByCpf(form.getCpf());
 		if (login(form.getCpf(), form.getPassword()) == false) throw new UnauthorizedException("Unauthorized Wrong Password");
-		LOGGER.info("(Person) "+ person.toString()  +" Deleted Successfully");
+		LOGGER.info("(Person)(Delete) "+ person.toString()  +" Deleted Successfully");
 		repository.delete(person);
 	}
 
@@ -135,6 +135,9 @@ public class PersonService {
 
 	public boolean login(String cpf, String password) {
 		Person pdb = repository.findByCpf(cpf);
+		if(pdb==null) {
+			return false;
+		}
 		boolean result = hashing.verify(pdb.getPassword(), password.toCharArray());
 		return result;
 	}

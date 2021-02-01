@@ -46,13 +46,13 @@ public class VoteService {
 		if (scheduleservice.isAlreadyVoted(form) == true) throw new UnauthorizedException("Error, You Already Voted");
 		boolean voteap = form.isAprovation();
 		if (voteap == true) {
-			sdb.setnVotesP(sdb.getnVotesP() + 1);
+			sdb.setNVotesP(sdb.getNVotesP() + 1);
 		} else {
-			sdb.setnVotesN(sdb.getnVotesN() + 1);
+			sdb.setNVotesN(sdb.getNVotesN() + 1);
 		}
-		Vote vote = new Vote(form);
-		LOGGER.info("(Vote) "+ vote.toString()  +" Inserted Successfully");
-		return voterepository.save(new Vote(form));
+		Vote vts =  voterepository.save(new Vote(form)); // if not did on that way id on log will be null because auto-increment
+		LOGGER.info("(Vote)(Insert) "+ vts.toString()  +" Inserted Successfully");
+		return (vts);
 	}
 
 	public Vote findVote(Long id) {
@@ -76,7 +76,7 @@ public class VoteService {
 		if (datecheck.isOnGoing(schedule) == false) throw new UnauthorizedException("Error, is not possible delete a vote on a ended votation");
 
 		voterepository.delete(vote);
-		LOGGER.info("(Vote) "+ vote.toString()  +" Deleted Successfully");
+		LOGGER.info("(Vote)(Delete) "+ vote.toString()  +" Deleted Successfully");
 		schedulerepository.save(scheduleservice.updateDeletedVote(schedule, vote.isAprovation()));
 	}
 
