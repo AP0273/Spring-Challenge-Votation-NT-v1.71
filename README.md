@@ -38,8 +38,8 @@ or [http://localhost:8080/h2/](http://localhost:8080/h2/) to acess database on a
 * Registred Person Cpf and Password
 
 ### Insert Vote
-* Existent Schedule id, Schedule State Ongoing
-* Registred Person Cpf and Password, Cpf able to vote on the response of heroku -> https://user-info.herokuapp.com/users/(cpf person without paretesis)
+* Existent Schedule id, Schedule State must be Ongoing based on the dates set at creation. 
+* Registred Person Cpf and Password, Cpf able to vote on the response of heroku -> https://user-info.herokuapp.com/users/(cpf person without paretesis) heroku                      response is random to valid cpf so keep trying until get a ABLE_TO_VOTE response or modify the field canVote to true on database
 * The person must not have already voted on the target schedule
 
 ### Data Update or Delete
