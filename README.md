@@ -43,4 +43,4 @@ or [http://localhost:8080/h2/](http://localhost:8080/h2/) to acess database on a
 * The person must not have already voted on the target schedule
 
 ### Data Update or Delete
-* Requires Authentication with Cpf and Password from from the data submitter
+* Requires Authentication with Cpf and Password from the data submitter
